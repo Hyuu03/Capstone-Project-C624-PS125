@@ -6,29 +6,151 @@
   <meta name="description" content="Free movie catalogue for you">
   <link rel="icon" href="./favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="styles.css"> <!-- Styles for the main page -->
+  <link rel="stylesheet" href="style.next.css"> <!-- New styles for the 'next' page -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <title>Health and Medicine Information</title>
 </head>
 <body>
-    <header class="app-bar">
-        <div class="app-bar__menu">
-          <button id="hamburgerButton">☰</button>
+  <header class="app-bar">
+    <div class="app-bar__menu">
+      <button id="hamburgerButton">☰</button>
+    </div>
+    <div class="app-bar__brand">
+      <h1>Health and Medicine Information</h1>
+    </div>
+    <nav id="navigationDrawer" class="app-bar__navigation">
+      <ul>
+        <li><a href="#/Beranda">Beranda</a></li>
+        <li><a href="#/Informasi-Obat">Informasi Obat</a></li>
+        <li><a href="#/Edukasi">Edukasi</a></li>
+        <li><a href="#/Login">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="login-form" id="login-form">
+    <h2>Sign In</h2>
+    <form action="#">
+      <div class="form-group">
+        <label for="email">Email or Phone Number</label>
+        <input type="text" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" id="remember-me" name="remember-me">
+        <label for="remember-me">Remember Me</label>
+      </div>
+      <button type="submit" class="login-btn">Sign In</button>
+    </form>
+    <p>Don't have an account? <a href="#" id="signUpLink">Sign Up</a></p>
+    <p>Need help?</p>
+  </div>
+
+  <div class="signup-form" id="signup-form" style="display: none;">
+    <h2>Sign Up</h2>
+    <form action="#">
+      <div class="form-group">
+        <label for="new-email">Email</label>
+        <input type="email" id="new-email" name="new-email" required>
+      </div>
+      <div class="form-group">
+        <label for="new-password">Password</label>
+        <input type="password" id="new-password" name="new-password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+      </div>
+      <button type="submit" class="signup-btn">Sign Up</button>
+    </form>
+  </div>
+
+  <main id="mainContent">
+    <section id="Beranda">
+      <h2>Beranda</h2>
+      <p>Welcome to Health and Medicine Information</p>
+    </section>
+
+    <section id="Informasi-Obat">
+      <h2>Informasi Obat</h2>
+      <p>Informasi tentang berbagai obat.</p>
+    </section>
+
+    <section id="Edukasi" class="edukasi-menu">
+      <div class="container">
+        <h2>Video Edukasi Kesehatan</h2>
+        <div class="video-grid">
+         <!-- Video 1 -->
+<div class="video-item">
+  <img src="Edukasi-Tentang-Obat-1.jpg" alt="Video 1">
+  <h3>Peran Obat dalam Menghancurkan Penyakit</h3>
+  <p>Mari perhatikan video ini karena penting loh untuk pengetahuan kita tentang peran obat yang harus kita ketahui:'</p>
+  <a href="https://youtu.be/vGIGTX0x46Q?si=F7hp0uMtwzzXZCce">Tonton Video 1 di YouTube</a>
+</div>
+
+<!-- Video 2 -->
+<div class="video-item">
+  <img src="obat-generik-dan-obat-paten.jpg" alt="Video 2">
+  <h3>Judul Video 2</h3>
+  <p>Jadi kita harus tau nih obat-obtan yang mana yang dapat kita beli langsung dan mana obat yang harus dengan resep dokter </p>
+  <a href="https://youtu.be/3rmwhearFKU?si=a0wUmFOIg8Yovc5G">Tonton Video 2 di YouTube</a>
+</div>
+
+<!-- Video 3 -->
+<div class="video-item">
+  <img src="obat-campur-campur.jpg" alt="Video 3">
+  <h3>Boleh gk yah minum obat asal asalan?</h3>
+  <p>Jangan minu obat campur campur yah karena obat yang campur-campur akan berakibat fatal dan berbahaya bagi hidup kita. mari lebih care terhadapt dir kita tentang pentingnya minum obat sesuai anjuran dokter. Karena kita gk belajar tentang kandungan obat dan tentang obat obatan. 
+    Banyak bahys deh kalo minum obat asal asalan dan campur campur :], </p>
+  <a href="https://youtu.be/URIDZtdDti0?si=ziKM8F09zjQi5xmn">Tonton Video 3 di YouTube</a>
+</div>
+
+<!-- Video 4 -->
+<div class="video-item">
+  <img src="fakta-mitos-remaja.jpg" alt="Video 4">
+  <h3>Judul mitos atau fakta yah?</h3>
+  <p>Ini nih  fakta dan mitos yang berkembang di kalangan masyarakat dari yang muda sampai yang tua.
+    Yuk simak video di bawah ini dengan baik yah. Semoga kita gak salah lagi dan bisa membedakan mana yang fakta dan mitos karena itu penting loh. 
+  </p>
+  <a href="https://youtu.be/Q7ozaVytNo4?si=5xwRyAXQWBHnTvct">Tonton Video 4 di YouTube</a>
+</div>
+
+<!-- Video 5 -->
+<div class="video-item">
+  <img src="no-rokok.jpg" alt="Video 5">
+  <h3>Jangan Ngerokok Lagi Yahh</h3>
+  <p>Buat kita nih yang masih suka merokok, ayuk jauhi ngerokok yuk. kita tahu bahayanya merokok dan kita juga sudah tau manfat menjauhi rokok. 
+    yok tonton video biar kita sehat dan orang orang di sekitar kita juga ikut sehat.
+  </p>
+  <a href="https://youtu.be/fUlfpFi1Dao?si=kzp6dOdc0faZOaF-">Tonton Video 5 di YouTube</a>
+</div>
+
+<!-- Video 6 -->
+<div class="video-item">
+  <img src="8 cara.jpg" alt="Video 6">
+  <h3>8 Tips Kesehatan</h3>
+  <p>Ini nih tips kesehatan yang mungkin banyak orang tau tapi sering lupa tau bahhkan sering dilupakan loh.
+    Tolong jaga kesehatan yang karena kesehatan itu mahal banget guyss </p>
+  <a href="https://youtu.be/_JtsswlZzPg?si=zrKFkuyESZSOvlwW">Tonton Video 6 di YouTube</a>
+</div>
         </div>
-        <div class="app-bar__brand">
-            <h1>Health and Medicine Information</h1>
-        </div>
-        <nav id="navigationDrawer" class="app-bar__navigation">
-            <ul>
-              <li><a href="#/Beranda">Beranda</a></li>
-              <li><a href="#/Informasi-Obat">Informasi Obat</a></li>
-              <li><a href="#/Edukasi">Edukasi</a></li>
-              <li><a href="#/Login">Login</a></li>
-            </ul>
-          </nav>
-        </header>
-        <main id="mainContent basing"></main>
-        <footer>
-            <p>Calon Dokter Muda <a href="www.kalbe.co.id" target="_blank" rel="noreferrer">IDProgramer</a></p>
-            </footer>
+
+      </div>
+    </section>
+    
+    
+  </main>
+
+  <footer>
+    <p>Calon Dokter Muda <a href="http://www.kalbe.co.id" target="_blank" rel="noreferrer">IDProgramer</a></p>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="scripts/index.js"></script>
 </body>
 </html>

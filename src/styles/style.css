@@ -1,219 +1,386 @@
 * {
-    padding: 0;
-    margin: 0;
-  }
-
-  .app-bar__brand {
-    position: relative; /* Make the parent positionable */
-  }
-
-  .page-title {
-  margin-top: 0; /* Remove any default margin */
-  padding: 20px; /* Add padding for visual spacing */
-  border: 1px solid #ccc; /* Add a border for visual separation (optional) */
+  padding: 0;
+  margin: 0;
 }
 
-  
-  
-   
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: white;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-   
-   
-  /*
-    AppBar
-  */
-   
-  .app-bar {
-    padding: 8px 16px;
-    background-color: white;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 10px;
-    position: sticky;
-    top: 0;
-    z-index: 99;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  }
-   
-  .app-bar .app-bar__menu {
-    display: flex;
-    align-items: center;
-  }
-   
-  .app-bar .app-bar__menu button {
-    background-color: transparent;
-    border: none;
-    font-size: 18px;
-    padding: 8px;
-    cursor: pointer;
-  }
-   
-  .app-bar .app-bar__brand {
-    display: flex;
-    align-items: center;
-  }
-   
-  .app-bar .app-bar__brand h1 {
-    color: #db0000;
-    text-transform: uppercase;
-    font-size: 22px;
-    user-select: none;
-  }
-   
-  .app-bar .app-bar__navigation {
-    position: absolute;
-    top: 50px;
-    left: -180px;
-    width: 150px;
-    transition: all 0.3s;
-    padding: 8px;
-    background-color: white;
-    overflow: hidden;
-  }
-   
-  .app-bar .app-bar__navigation.open {
-    left: 0;
-  }
-   
-  .app-bar .app-bar__navigation ul li a {
-    display: inline-block;
-    text-decoration: none;
-    color: black;
-    padding: 8px;
-    margin-bottom: 5px;
-    width: 100%;
-  }
-   
-  /*
-    Main Content
-  */
-   
-  main {
-    padding: 32px;
-    flex: 1;
-  }
-   
-  .content {
-    margin: 0 auto;
-    min-height: 100%;
-  }
-   
-  .content .content__heading {
-    font-weight: normal;
-  }
-   
-   
-  /*
-    Movies
-  */
-   
-  .movies {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin: 32px 0;
-  }
-   
-   
-  /*
-    Movie Item
-  */
-   
-  .movie-item {
-    width: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-   
-  .movie-item__header {
-    position: relative;
-  }
-   
-  .movie-item .movie-item__header .movie-item__header__poster {
-    width: 100%;
-  }
-   
-  .movie-item .movie-item__header .movie-item__header__rating {
-    position: absolute;
-    padding: 8px;
-    bottom: 20px;
-    left: 0;
-    display: inline-block;
-    background-color: black;
-    color: white;
-  }
-   
-  .movie-item .movie-item__header .movie-item__header__rating .movie-item__header__rating__score {
-    margin-left: 10px;
-  }
-   
-  .movie-item .movie-item__content {
-    padding: 16px;
-  }
-   
-  .movie-item .movie-item__content h3 {
-    margin: 0 0 10px 0;
-  }
-   
-  .movie-item .movie-item__content h3 a {
-    color: #db0000;
-    text-decoration: none;
-  }
-   
-  .movie-item .movie-item__content p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4; /* number of lines to show */
-    -webkit-box-orient: vertical;
-  }
-   
-   
-  /*
-    Movie
-  */
-   
-  .movie {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 800px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px 16px;
-  }
-   
-  .movie .movie__poster {
-    width: 100%;
-    max-width: 400px;
-  }
-   
-  .movie .movie__info h4 {
-    margin: 8px 0;
-  }
-   
-   
-   
-  /*
-    Footer
-  */
-   
-  footer {
-    padding: 16px;
-  }
-   
-  footer p {
-    text-align: center;
-    color: #aaaaaa;
-  }
-   
-  footer p a {
-    color: #db0000;
-    text-decoration: none;
-  }
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Ensuring the content is centered vertically */
+  align-items: center; /* Ensuring the content is centered horizontally */
+}
+
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Ensuring the navbar takes full width */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+}
+
+.login-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.login-form {
+  background-color: #fff;
+  padding: 20px;
+  width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Removed because it is not necessary */
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.form-group input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.login-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.login-form a {
+  text-decoration: none;
+}
+
+/* menu edukasi*/
+/* styles.css */
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0; /* Ganti dengan warna latar belakang yang diinginkan */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.video-item {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.video-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-item h3 {
+  padding: 15px;
+  font-size: 1.2em;
+}
+
+.video-item p {
+  padding: 0 15px 15px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 0 5px;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.pagination a.current {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* sign up*/
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.app-bar {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.app-bar__menu button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.app-bar__brand h1 {
+  margin: 0;
+}
+
+.app-bar__navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.app-bar__navigation li {
+  margin-right: 1rem;
+}
+
+.app-bar__navigation a {
+  color: white;
+  text-decoration: none;
+}
+
+.login-form, .signup-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.login-btn, .signup-btn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-btn:hover, .signup-btn:hover {
+  background-color: #0056b3;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+}
+
+
+/* AppBar */
+.app-bar {
+  padding: 8px 16px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  width: 100%; /* Ensuring the app-bar takes full width */
+}
+
+.app-bar__brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.app-bar__brand h1 {
+  color: #db0000;
+  text-transform: uppercase;
+  font-size: 22px;
+  user-select: none;
+}
+
+.app-bar__menu {
+  display: flex;
+  align-items: center;
+}
+
+.app-bar__menu button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.app-bar__navigation {
+  position: absolute;
+  top: 50px;
+  left: -180px;
+  width: 150px;
+  transition: all 0.3s;
+  padding: 8px;
+  background-color: white;
+  overflow: hidden;
+}
+
+.app-bar__navigation.open {
+  left: 0;
+}
+
+.app-bar__navigation ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  padding: 8px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.app-bar__navigation ul li a.active {
+  background-color: #db0000;
+  color: white;
+}
+
+/* Main Content */
+main {
+  padding: 32px;
+  flex: 1;
+  width: 100%; /* Ensuring main takes full width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Ensuring the form is centered vertically within the main container */
+  align-items: center; /* Ensuring the form is centered horizontally within the main container */
+}
+
+.content {
+  margin: 0 auto;
+  min-height: 100%;
+}
+
+.content__heading {
+  font-weight: normal;
+}
+
+/* Footer */
+footer {
+  padding: 16px;
+  width: 100%; /* Ensuring the footer takes full width */
+}
+
+footer p {
+  text-align: center;
+  color: #aaaaaa;
+}
+
+footer p a {
+  color: #db0000;
+  text-decoration: none;
+}
+
+/* Page Title */
+.page-title {
+  margin-top: 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
