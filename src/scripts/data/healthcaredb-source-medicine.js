@@ -160,3 +160,5 @@ class TheHealthcareSourceMedicine{
         }
     }
 }
+
+export default TheHealthcareSourceMedicine;

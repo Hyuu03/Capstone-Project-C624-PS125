@@ -1,6 +1,7 @@
 import 'regenerator-runtime';
 import '../styles/style.css';
 import '../styles/responsive.css';
+import TheHealthcareSourceUser from './data/healthcaredb-source-user';
 
 document.addEventListener('DOMContentLoaded', () => {
   const menuItems = document.querySelectorAll('.app-bar .app-bar__navigation ul li a');
@@ -78,9 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburgerButton = document.getElementById('hamburgerButton');
   const navigationDrawer = document.getElementById('navigationDrawer');
 
-  hamburgerButton.addEventListener('click', () => {
-    navigationDrawer.classList.toggle('open');
-  });
+  if (hamburgerButton && navigationDrawer) {
+    hamburgerButton.addEventListener('click', () => {
+      navigationDrawer.classList.toggle('open');
+    });
+  }
 
   const navLinks = document.querySelectorAll('.app-bar__navigation a');
 
@@ -98,22 +101,68 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Signup and login form toggling
-  document.getElementById('signUpLink').addEventListener('click', function(event) {
+  const signUpLink = document.getElementById('signUpLink');
+  const signInLink = document.getElementById('signInLink');
+
+  if (signUpLink && signInLink) {
+    signUpLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      hideAllForms();
+      document.getElementById('signup-form').style.display = 'block';
+    });
+
+    signInLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      hideAllForms();
+      document.getElementById('login-form').style.display = 'block';
+
+      // Hide all sections except 'Login' when login form is shown
+      hideAllSectionsExcept('Login');
+    });
+  }
+  // Event listener for sign up link
+if (signUpLink) {
+  signUpLink.addEventListener('click', function(event) {
     event.preventDefault();
     hideAllForms();
-    document.getElementById('login-form').style.display = 'none';
     document.getElementById('signup-form').style.display = 'block';
   });
+}
+  
+  // Event listener for registration form
+  const registrationForm = document.getElementById('signup-form');
+  if (registrationForm) {
+    registrationForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const name = document.getElementById('new-name').value;
+      const email = document.getElementById('new-email').value;
+      const password = document.getElementById('new-password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
 
-  document.getElementById('signInLink').addEventListener('click', function(event) {
-    event.preventDefault();
-    hideAllForms();
-    document.getElementById('signup-form').style.display = 'none';
-    document.getElementById('login-form').style.display = 'block';
+      const response = await TheHealthcareSourceUser.register(name, email, password, confirmPassword);
+      if (response) {
+        alert('Registration successful!');
+        hideAllForms();
+        showForm('login-form');
+      }
+    });
+  }
 
-    // Hide all sections except 'Login' when login form is shown
-    hideAllSectionsExcept('Login');
-  });
+  // Event listener for login form
+  const loginForm = document.getElementById('login-form');
+  if (loginForm) {
+    loginForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      const response = await TheHealthcareSourceUser.login(email, password);
+      if (response) {
+        alert('Login successful!');
+        // Redirect to home page or do other actions after successful login
+      }
+    });
+  }
 
   // Initialize the default view
   hideAllSectionsExceptLogin();
@@ -147,22 +196,31 @@ document.addEventListener('DOMContentLoaded', () => {
     nextButton.style.display = currentPage === totalPages ? 'none' : 'inline';
   };
 
-  prevButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    if (currentPage > 1) {
-      currentPage--;
-      updatePagination();
-    }
-  });
+  if (prevButton && nextButton && currentPageIndicator) {
+    prevButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (currentPage > 1) {
+        currentPage--;
+        updatePagination();
+      }
+    });
 
-  nextButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    if (currentPage < totalPages) {
-      currentPage++;
-      updatePagination();
-    }
-  });
+    nextButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (currentPage < totalPages) {
+        currentPage++;
+        updatePagination();
+      }
+    });
 
-  // Initial call to setup the pagination
-  updatePagination();
+    // Initial call to setup the pagination
+    updatePagination();
+  }
 });
+
+function showForm(formId) {
+  const form = document.getElementById(formId);
+  if (form) {
+    form.style.display = 'block';
+  }
+}
