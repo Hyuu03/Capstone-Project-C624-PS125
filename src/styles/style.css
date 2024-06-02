@@ -503,7 +503,8 @@ body {
 }
 
 .login-form, .signup-form {
-  max-width: 400px;
+  /* max-width: 800px; */
+  width: 400px;
   margin: 2rem auto;
   padding: 2rem;
   border: 1px solid #ddd;
