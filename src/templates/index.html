@@ -6,8 +6,6 @@
   <meta name="description" content="Free movie catalogue for you">
   <link rel="icon" href="./favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css"> <!-- Styles for the main page -->
-  <link rel="stylesheet" href="style.next.css"> <!-- New styles for the 'next' page -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <title>Health and Medicine Information</title>
 </head>
@@ -53,6 +51,10 @@
   <div class="signup-form" id="signup-form" style="display: none;">
     <h2>Sign Up</h2>
     <form action="#">
+      <div class="form-group">
+        <label for="new-name">Name</label>
+        <input type="text" id="new-name" name="new-name" required>
+      </div>
       <div class="form-group">
         <label for="new-email">Email</label>
         <input type="email" id="new-email" name="new-email" required>
@@ -151,6 +153,5 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="scripts/index.js"></script>
 </body>
 </html>
