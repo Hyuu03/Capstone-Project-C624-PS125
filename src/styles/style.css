@@ -1,6 +1,24 @@
-* {
+/* * {
   padding: 0;
   margin: 0;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --bg-color: #65b741;
+  --bg-color-2: #ffffff;
+  --text-color: #fbf6ee;
+  --text-color-2: #2d511d;
 }
 
 body {
@@ -100,15 +118,276 @@ body {
   text-decoration: none;
 }
 
+/* Beranda */
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 500px;
+  width: 100%;
+  text-align: left;
+  background-position: center;
+  background: linear-gradient(180deg, #65b741 0%, #2d511d 160.6%);
+}
+
+.TampilAwal {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.TampilAwal h1 {
+  color: white;
+  font-weight: 500;
+  font-size: 40px;
+}
+
+.TampilAwal p {
+  color: white;
+  margin-top: 14px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.obat,
+.edukasi {
+  min-height: auto;
+  padding: 2rem 9% 2rem;
+}
+
+.obat {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: var(--bg-color-2);
+  /* padding-bottom: 6rem; */
+}
+
+.heading {
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 50px;
+  color: var(--text-color-2);
+}
+
+.groupObat {
+  position: relative;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  /* grid-template-columns: repeat(4, 1fr); */
+  grid-gap: 20px;
+}
+
+.jenisObat {
+  text-align: center;
+}
+
+.ellipse {
+  width: 80px;
+  height: 80px;
+  top: 0;
+  left: 0;
+  background-color: #65b741;
+  border-radius: 60px;
+  padding-bottom: 10px;
+}
+
+.text {
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-color-2);
+}
+
+.lihat-semua {
+  position: relative;
+  padding: 2em;
+}
+
+.containerText {
+  background-color: var(--bg-color);
+  width: 200px;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 0 37%;
+}
+
+.containerText a p {
+  text-decoration: none;
+  text-align: center;
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.edukasi {
+  background: linear-gradient(180deg, #2d511d -55.82%, #65b741 100%);
+}
+.judul {
+  display: flex;
+  padding-bottom: 50px;
+}
+
+.heading2 {
+  color: var(--text-color);
+}
+
+.edukasi a {
+  padding-left: 80%;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.groupEdukasi {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  padding-bottom: 50px;
+}
+
+.VideoEdukasi {
+  height: 20em;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.VideoEdukasi a {
+  text-decoration: none;
+}
+
+.VideoEdukasi img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.VideoEdukasi a h3 {
+  padding: 15px;
+  font-size: 1.2em;
+  color: var(--text-color-2);
+}
+
+/* Informasi Obat */
+.obat2,
+.drug-list {
+  min-height: auto;
+  padding: 2rem 9% 2rem;
+}
+
+.obat2 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: linear-gradient(180deg, #65b741 0%, #2d511d 160.6%);
+  padding-bottom: 6rem;
+}
+
+.heading2 {
+  text-align: left;
+  padding-bottom: 50px;
+  color: var(--text-color);
+}
+
+.groupObat2 {
+  position: relative;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(150px, 1fr));
+  /* grid-template-columns: repeat(4, 1fr); */
+  grid-gap: 20px;
+}
+
+.text2 {
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* styling search bar */
+.search input[type="text"] {
+  width: 94%;
+  height: 40px;
+  border-radius: 25px;
+  border: none;
+}
+
+.search {
+  float: right;
+  margin: 7px;
+}
+
+.search button {
+  background-color: transparent;
+  color: #f2f2f2;
+  float: right;
+  padding: 5px 10px;
+  margin-right: 16px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.drug-list {
+  background-color: var(--bg-color-2);
+  display: grid;
+  padding: 50px;
+}
+
+.drug-list h2 {
+  text-align: left;
+  margin-bottom: 20px;
+  padding-left: 50px;
+}
+
+.drug-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0 50px;
+}
+
+.drug-item {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 5px;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #4caf50;
+  padding: 10px 15px;
+  border: 1px solid #4caf50;
+  border-radius: 5px;
+}
+
+.pagination a.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+
 /* menu edukasi*/
 /* styles.css */
 
 /* Reset CSS */
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 body {
   font-family: Arial, sans-serif;
@@ -219,7 +498,7 @@ body {
 }
 
 .app-bar__navigation a {
-  color: white;
+  /* color: white; */
   text-decoration: none;
 }
 
@@ -265,25 +544,25 @@ body {
   background-color: #0056b3;
 }
 
-footer {
+/* footer {
   text-align: center;
   padding: 1rem;
   background-color: #333;
   color: white;
-}
+} */
 
 
 /* AppBar */
 .app-bar {
   padding: 8px 16px;
-  background-color: white;
+  background-color: var(--bg-color);
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 10px;
   position: sticky;
   top: 0;
   z-index: 99;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
   width: 100%; /* Ensuring the app-bar takes full width */
 }
 
@@ -294,7 +573,7 @@ footer {
 }
 
 .app-bar__brand h1 {
-  color: #db0000;
+  color: var(--text-color-2);
   text-transform: uppercase;
   font-size: 22px;
   user-select: none;
@@ -316,11 +595,11 @@ footer {
 .app-bar__navigation {
   position: absolute;
   top: 50px;
-  left: -180px;
-  width: 150px;
+  left: -100%;
+  width: 100%;
   transition: all 0.3s;
   padding: 8px;
-  background-color: white;
+  background-color: var(--bg-color);
   overflow: hidden;
 }
 
@@ -331,20 +610,22 @@ footer {
 .app-bar__navigation ul li a {
   display: inline-block;
   text-decoration: none;
-  color: black;
+  color: var(--text-color);
   padding: 8px;
   margin-bottom: 5px;
   width: 100%;
+  font-size: 16px;
 }
 
 .app-bar__navigation ul li a.active {
-  background-color: #db0000;
-  color: white;
+  /* background-color: #db0000; */
+  color: var(--text-color-2);
+  font-weight: bolder;
 }
 
 /* Main Content */
 main {
-  padding: 32px;
+  /* padding: 32px; */
   flex: 1;
   width: 100%; /* Ensuring main takes full width */
   display: flex;
@@ -363,14 +644,25 @@ main {
 }
 
 /* Footer */
-footer {
+/* footer {
   padding: 16px;
-  width: 100%; /* Ensuring the footer takes full width */
+  width: 100%;
+} */
+
+footer {
+  background-color: var(--bg-color-2);
+  color: var(--text-color-2);
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2em;
+  width: 100%;
+  text-align: center;
 }
 
 footer p {
+  padding-top: 10px;
   text-align: center;
-  color: #aaaaaa;
+  color: var(--text-color-2);
 }
 
 footer p a {

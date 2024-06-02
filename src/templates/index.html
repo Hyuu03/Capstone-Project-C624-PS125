@@ -6,6 +6,8 @@
   <meta name="description" content="Free movie catalogue for you">
   <link rel="icon" href="./favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"> <!-- Styles for the main page -->
+  <link rel="stylesheet" href="style.next.css"> <!-- New styles for the 'next' page -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <title>Health and Medicine Information</title>
 </head>
@@ -15,14 +17,14 @@
       <button id="hamburgerButton">☰</button>
     </div>
     <div class="app-bar__brand">
-      <h1>Health and Medicine Information</h1>
+      <h1>Logo</h1>
     </div>
     <nav id="navigationDrawer" class="app-bar__navigation">
       <ul>
         <li><a href="#/Beranda">Beranda</a></li>
         <li><a href="#/Informasi-Obat">Informasi Obat</a></li>
         <li><a href="#/Edukasi">Edukasi</a></li>
-        <li><a href="#/Login">Login</a></li>
+        <li><a href="#/Login" style="color: #2d511d; font-weight: bold; background-color: white; border-radius: 10px; width: 80px;">Login</a></li>
       </ul>
     </nav>
   </header>
@@ -52,10 +54,6 @@
     <h2>Sign Up</h2>
     <form action="#">
       <div class="form-group">
-        <label for="new-name">Name</label>
-        <input type="text" id="new-name" name="new-name" required>
-      </div>
-      <div class="form-group">
         <label for="new-email">Email</label>
         <input type="email" id="new-email" name="new-email" required>
       </div>
@@ -73,13 +71,215 @@
 
   <main id="mainContent">
     <section id="Beranda">
-      <h2>Beranda</h2>
-      <p>Welcome to Health and Medicine Information</p>
+      <div class="hero">
+        <div class="TampilAwal">
+          <h1>Selamat Datang di obat blalalala</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
+            laboriosam nesciunt unde omnis eaque optio ipsam voluptatum explicabo
+            minus exercitationem, et labore. Quas quae mollitia, deleniti
+            dignissimos sint voluptas tempora.
+          </p>
+        </div>
+      </div>
+
+      <div class="obat">
+        <h2 class="heading">Informasi Obat</h2>
+        <div class="groupObat">
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text">Sakit A</div>
+            </a>
+          </div>
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text">Sakit A</div>
+            </a>
+          </div>
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text">Sakit A</div>
+            </a>
+          </div>
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text">Sakit A</div>
+            </a>
+          </div>
+        </div>
+
+        <div class="lihat-semua">
+          <div class="containerText">
+            <a href="">
+              <p>Lihat Semua</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="edukasi">
+        <div class="judul">
+          <h2 class="heading2">Edukasi</h2>
+          <a href="#Edukasi">Lihat Semua</a>
+        </div>
+
+        <div class="groupEdukasi">
+          <div class="VideoEdukasi">
+            <a href="https://youtu.be/vGIGTX0x46Q?si=F7hp0uMtwzzXZCce">
+              <img src="Edukasi-Tentang-Obat-1.jpg" alt="Video 1" />
+              <h3>Peran Obat dalam Menghancurkan Penyakit</h3>
+            </a>
+          </div>
+
+          <div class="VideoEdukasi">
+            <a href="https://youtu.be/3rmwhearFKU?si=a0wUmFOIg8Yovc5G">
+              <img src="obat-generik-dan-obat-paten.jpg" alt="Video 2" />
+              <h3>Judul Video 2</h3>
+            </a>
+          </div>
+
+          <div class="VideoEdukasi">
+            <a href="https://youtu.be/URIDZtdDti0?si=ziKM8F09zjQi5xmn">
+              <img src="obat-campur-campur.jpg" alt="Video 3" />
+              <h3>Boleh gk yah minum obat asal asalan?</h3>
+            </a>
+          </div>
+
+          <div class="VideoEdukasi">
+            <a href="https://youtu.be/Q7ozaVytNo4?si=5xwRyAXQWBHnTvct">
+              <img src="fakta-mitos-remaja.jpg" alt="Video 4" />
+              <h3>Judul mitos atau fakta yah?</h3>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="Informasi-Obat">
-      <h2>Informasi Obat</h2>
-      <p>Informasi tentang berbagai obat.</p>
+      <div class="obat2">
+        <div class="search">
+          <form action="#">
+            <input type="text" placeholder="Search Courses" name="search" />
+            <button>
+              <i class="fa fa-search" style="font-size: 18px"></i>
+            </button>
+          </form>
+        </div>
+        <h2 class="heading2">Informasi Obat</h2>
+        <div class="groupObat2">
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text2">Sakit A</div>
+            </a>
+          </div>
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text2">Sakit A</div>
+            </a>
+          </div>
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text2">Sakit A</div>
+            </a>
+          </div>
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text2">Sakit A</div>
+            </a>
+          </div>
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text2">Sakit A</div>
+            </a>
+          </div>
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text2">Sakit A</div>
+            </a>
+          </div>
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text2">Sakit A</div>
+            </a>
+          </div>
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text2">Sakit A</div>
+            </a>
+          </div>
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text2">Sakit A</div>
+            </a>
+          </div>
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text2">Sakit A</div>
+            </a>
+          </div>
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text2">Sakit A</div>
+            </a>
+          </div>
+          <div class="jenisObat">
+            <a href="#">
+              <div class="ellipse"></div>
+              <div class="text2">Sakit A</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="drug-list">
+        <h2>Daftar Obat</h2>
+        <div class="drug-grid">
+          <div class="drug-item">Nama Obat</div>
+          <div class="drug-item">Nama Obat</div>
+          <div class="drug-item">Nama Obat</div>
+          <div class="drug-item">Nama Obat</div>
+          <div class="drug-item">Nama Obat</div>
+          <div class="drug-item">Nama Obat</div>
+          <div class="drug-item">Nama Obat</div>
+          <div class="drug-item">Nama Obat</div>
+          <div class="drug-item">Nama Obat</div>
+          <div class="drug-item">Nama Obat</div>
+          <div class="drug-item">Nama Obat</div>
+          <div class="drug-item">Nama Obat</div>
+        </div>
+        <div class="pagination">
+          <a href="#">&laquo;&laquo;</a>
+          <a href="#">&lsaquo;</a>
+          <a href="#" class="active">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+          <span>....</span>
+          <a href="#">16</a>
+          <a href="#">17</a>
+          <a href="#">18</a>
+          <a href="#">19</a>
+          <a href="#">20</a>
+          <a href="#">&rsaquo;</a>
+          <a href="#">&raquo;&raquo;</a>
+        </div>
+      </div>
     </section>
 
     <section id="Edukasi" class="edukasi-menu">
@@ -153,5 +353,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="scripts/index.js"></script>
 </body>
 </html>
