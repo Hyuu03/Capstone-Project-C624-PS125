@@ -118,6 +118,14 @@ body {
   text-decoration: none;
 }
 
+/* icon web di bagian kiri atas */
+.app-bar__brand img {
+  height: 60px; /* mengatur tinggi gambar favicon */
+  
+  width: auto; /* membiarkan lebar disesuaikan secara otomatis */
+}
+
+
 /* Beranda */
 .hero {
   display: flex;
