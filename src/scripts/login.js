@@ -1,54 +1,38 @@
-import TheHealthcareSourceUser from './data/healthcaredb-source-user';
-
 document.addEventListener('DOMContentLoaded', () => {
   const sections = {
-    Login: document.getElementById('login-form')
+    Login: document.getElementById('login-form'),
+    SignUp: document.getElementById('signup-form')
   };
 
-  const showSection = (sectionId) => {
-    const section = sections[sectionId];
-    if (section) {
-      section.style.display = 'block';
-    }
-  };
-
-  const hideAllSectionsExcept = (exceptSection) => {
-    Object.entries(sections).forEach(([key, section]) => {
-      if (key !== exceptSection && section) {
-        section.style.display = 'none';
+  // Fungsi untuk menampilkan form
+  function showForm(formId) {
+    for (const sectionId in sections) {
+      if (sections.hasOwnProperty(sectionId)) {
+        const section = sections[sectionId];
+        section.style.display = sectionId === formId ? 'block' : 'none';
       }
-    });
-  };
+    }
+  }
 
-  // Function to hide all forms
-  const hideAllForms = () => {
-    document.querySelectorAll('.login-form, .signup-form').forEach(form => {
-      form.style.display = 'none';
-    });
-  };
-
-  // Signup and login form toggling
+  // Tombol Sign Up
   const signUpLink = document.getElementById('signUpLink');
-  const signInLink = document.getElementById('signInLink');
-
-  if (signUpLink && signInLink) {
+  if (signUpLink) {
     signUpLink.addEventListener('click', function(event) {
       event.preventDefault();
-      hideAllForms();
-      document.getElementById('signup-form').style.display = 'block';
-    });
-
-    signInLink.addEventListener('click', function(event) {
-      event.preventDefault();
-      hideAllForms();
-      document.getElementById('login-form').style.display = 'block';
-
-      // Hide all sections except 'Login' when login form is shown
-      hideAllSectionsExcept('Login');
+      showForm('SignUp');
     });
   }
 
-  // Event listener for registration form
+  // Tombol Sign In
+  const signInLink = document.getElementById('signInLink');
+  if (signInLink) {
+    signInLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      showForm('Login');
+    });
+  }
+
+  // Penanganan submit form registrasi
   const registrationForm = document.getElementById('signup-form');
   if (registrationForm) {
     registrationForm.addEventListener('submit', async (event) => {
@@ -60,14 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const response = await TheHealthcareSourceUser.register(name, email, password, confirmPassword);
       if (response) {
-        alert('Registration successful!');
-        hideAllForms();
-        showForm('login-form');
+        alert('Registrasi berhasil!');
+        showForm('Login'); // Tampilkan form login setelah registrasi berhasil
       }
     });
   }
 
-  // Event listener for login form
+  // Penanganan submit form login
   const loginForm = document.getElementById('login-form');
   if (loginForm) {
     loginForm.addEventListener('submit', async (event) => {
@@ -77,20 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const response = await TheHealthcareSourceUser.login(email, password);
       if (response) {
-        alert('Login successful!');
-        // Redirect to home page or do other actions after successful login
+        alert('Login berhasil!');
+        // Redirect ke halaman lain atau lakukan tindakan lain setelah login berhasil
       }
     });
   }
 
-  // Initialize the default view
-  hideAllSectionsExcept('Login');
-  showSection('Login');
+  // Menampilkan form login secara default saat halaman dimuat
+  showForm('Login');
 });
-
-function showForm(formId) {
-  const form = document.getElementById(formId);
-  if (form) {
-    form.style.display = 'block';
-  }
-}
