@@ -119,29 +119,3 @@ document.addEventListener('DOMContentLoaded', () => {
   // Menampilkan formulir login saat halaman dimuat
   showForm('Login');
 });
-
-// Objek tiruan untuk TheHealthcareSourceUser
-const TheHealthcareSourceUser = {
-  register: async (name, email, password, confirmPassword) => {
-    console.log(`Mendaftarkan pengguna: ${name}, ${email}`);
-    // Simulasi panggilan API dengan delay menggunakan Promise
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(true);
-      }, 1000);
-    });
-  },
-  login: async (email, password) => {
-    console.log(`Login pengguna: ${email}`);
-    // Simulasi panggilan API dengan delay menggunakan Promise
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (email === "user@example.com" && password === "password123") {
-          resolve(true);
-        } else {
-          reject(new Error("Email atau password salah"));
-        }
-      }, 1000);
-    });
-  }
-};

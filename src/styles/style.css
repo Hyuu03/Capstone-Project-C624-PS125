@@ -685,3 +685,24 @@ footer p a {
   padding: 20px;
   border: 1px solid #ccc;
 }
+
+.drug-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.medicine-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.medicine-item h3 {
+  margin-top: 0;
+}
+
+.medicine-item p {
+  margin: 0;
+}
