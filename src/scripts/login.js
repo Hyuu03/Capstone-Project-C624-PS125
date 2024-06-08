@@ -1,3 +1,5 @@
+import TheHealthcareSourceUser from "./data/healthcaredb-source-user";
+
 // Menunggu sampai DOM selesai dimuat
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM fully loaded and parsed');
