@@ -685,3 +685,23 @@ footer p a {
   padding: 20px;
   border: 1px solid #ccc;
 }
+
+/* Tambahkan ini ke file CSS Anda */
+.logout-button {
+  background-color: #4CAF50; /* Warna latar belakang hijau */
+  border: none; /* Hapus border default */
+  color: white; /* Warna teks putih */
+  padding: 10px 20px; /* Padding di sekitar teks */
+  text-align: center; /* Teks ditengah */
+  text-decoration: none; /* Hapus garis bawah */
+  display: inline-block; /* Inline-block agar bisa memiliki lebar dan tinggi */
+  font-size: 16px; /* Ukuran font */
+  margin: 4px 2px; /* Margin kecil */
+  cursor: pointer; /* Ganti cursor menjadi pointer */
+  border-radius: 8px; /* Sudut melengkung */
+  transition: background-color 0.3s ease; /* Transisi halus saat hover */
+}
+
+.logout-button:hover {
+  background-color: #45a049; /* Warna latar belakang saat hover */
+}
