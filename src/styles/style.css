@@ -123,6 +123,7 @@ body {
   height: 60px; /* mengatur tinggi gambar favicon */
   
   width: auto; /* membiarkan lebar disesuaikan secara otomatis */
+  border-radius: 70%;
 }
 
 
