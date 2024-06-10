@@ -74,6 +74,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         alert('Registrasi berhasil!');
         showForm('Login', email, password); // Menampilkan formulir login dengan mengisi email dan password
+        
+        // Setelah login berhasil, ubah tampilan menjadi logo "user.jpg"
+        const loginLink = document.getElementById('loginLink');
+        if (loginLink) {
+          loginLink.innerHTML = '<img src="user.jpg" alt="User" style="width: 80px; height: auto;">';
+          // Sembunyikan tulisan login
+          loginLink.style.color = 'transparent';
+          // Sembunyikan latar belakang login
+          loginLink.style.background = 'none';
+        }
+        
       } catch (error) {
         console.error('Registrasi gagal:', error.message);
         alert('Registrasi gagal: ' + error.message);
@@ -98,6 +109,16 @@ document.addEventListener('DOMContentLoaded', () => {
       // Memeriksa kecocokan email dan password yang dimasukkan dengan yang terdaftar
       if (email === registeredEmail && password === registeredPassword) {
         alert('Sign in berhasil!');
+
+        // Ubah tampilan menjadi logo "user.jpg"
+        const loginLink = document.getElementById('loginLink');
+        if (loginLink) {
+          loginLink.innerHTML = '<img src="user.jpg" alt="User" style="width: 80px; height: auto;">';
+          // Sembunyikan tulisan login
+          loginLink.style.color = 'transparent';
+          // Sembunyikan latar belakang login
+          loginLink.style.background = 'none';
+        }
       } else {
         alert('Email atau password salah');
       }
@@ -143,3 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Menampilkan formulir login sebagai default
   showForm('Login');
 });
+
+
+//logo login
