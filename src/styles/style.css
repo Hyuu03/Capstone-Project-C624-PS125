@@ -22,7 +22,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: white;
   min-height: 100vh;
   display: flex;
@@ -121,11 +121,10 @@ body {
 /* icon web di bagian kiri atas */
 .app-bar__brand img {
   height: 60px; /* mengatur tinggi gambar favicon */
-  
+
   width: auto; /* membiarkan lebar disesuaikan secara otomatis */
   border-radius: 70%;
 }
-
 
 /* Beranda */
 .hero {
@@ -387,7 +386,6 @@ body {
   color: white;
 }
 
-
 /* menu edukasi*/
 /* styles.css */
 
@@ -468,10 +466,9 @@ h2 {
   display: none;
 }
 
-
 /* sign up*/
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -511,7 +508,8 @@ body {
   text-decoration: none;
 }
 
-.login-form, .signup-form {
+.login-form,
+.signup-form {
   /* max-width: 800px; */
   width: 400px;
   margin: 2rem auto;
@@ -539,7 +537,8 @@ body {
   border-radius: 4px;
 }
 
-.login-btn, .signup-btn {
+.login-btn,
+.signup-btn {
   display: block;
   width: 100%;
   padding: 0.75rem;
@@ -550,7 +549,8 @@ body {
   cursor: pointer;
 }
 
-.login-btn:hover, .signup-btn:hover {
+.login-btn:hover,
+.signup-btn:hover {
   background-color: #0056b3;
 }
 
@@ -560,7 +560,6 @@ body {
   background-color: #333;
   color: white;
 } */
-
 
 /* AppBar */
 .app-bar {
@@ -689,7 +688,7 @@ footer p a {
 
 /* Tambahkan ini ke file CSS Anda */
 .logout-button {
-  background-color: #4CAF50; /* Warna latar belakang hijau */
+  background-color: #4caf50; /* Warna latar belakang hijau */
   border: none; /* Hapus border default */
   color: white; /* Warna teks putih */
   padding: 10px 20px; /* Padding di sekitar teks */
@@ -726,4 +725,162 @@ footer p a {
 
 .medicine-item p {
   margin: 0;
+}
+
+/* Dashboard */
+.search-add-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  width: 500px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+.search-bar .search-btn {
+  padding: 5px 10px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.add-btn {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.table-container {
+  padding: 10px 5%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f1f1f1;
+}
+
+table td {
+  background-color: var(--bg-color-2);
+}
+
+.edit-btn {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: var(--text-color);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.paginationDashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.paginationDashboard-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.paginationDashboard-buttons button {
+  background-color: var(--bg-color-2);
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.paginationDashboard-buttons span {
+  font-size: 16px;
+}
+
+/* Tambah Obat & Edit Obat*/
+.containerEdit,
+.containerTambah {
+  max-width: 800px;
+  margin: auto;
+  background-color: var(--bg-color-2);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+form input,
+form select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.buttons .btn-tambah,
+.btn-simpan {
+  background-color: var(--bg-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.buttons .btn-batal {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }

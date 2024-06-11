@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 medicineElement.innerHTML = `
                     <h3>${medicine.name}</h3>
                     <p><strong>Class Therapy:</strong> ${medicine.class_therapy}</p>
-                    <p><strong>Drug Restrictions:</strong> ${medicine.drug_restrictions ? medicine.drug_restrictions : 'None'}</p>
+                    
                 `;
                 drugGrid.appendChild(medicineElement);
             });
