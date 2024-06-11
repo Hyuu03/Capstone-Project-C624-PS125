@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const drugGrid = document.querySelector('.drug-grid');
 
     try {
-        const medicinesData = await TheHealthcareSourceMedicine.getMedicines({ limit: 10, page: 1 });
+        const medicinesData = await TheHealthcareSourceMedicine.getMedicines({ limit: 12, page: 1 });
         if (medicinesData) {
             const medicines = medicinesData.medicines; // Sesuaikan dengan struktur data yang diberikan
             medicines.forEach(medicine => {
