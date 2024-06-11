@@ -83,22 +83,39 @@ class TheHealthcareSourceUser {
     }
     static async logout() {
         try {
-            const response = await fetch(`${CONFIG.BASE_URL}/logout`, {
-                method: 'DELETE',
-                credentials: 'include', // Ensure cookies are included
+            const accessToken = localStorage.getItem('accessToken');
+            if (!accessToken) {
+                throw new Error('Token akses tidak ditemukan');
+            }
+            localStorage.removeItem('accessToken');
+        } catch (error) {
+            console.log(error.message);
+            return null;
+        }
+    }
+    
+    static async getUser() {
+        try {
+            const accessToken = localStorage.getItem('accessToken');
+            if (!accessToken) throw new Error('User is not authenticated');
+
+            const response = await fetch(`${CONFIG.BASE_URL}/users`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json',
+                },
             });
 
+            const responseJson = await response.json();
+
             if (!response.ok) {
-                const responseJson = await response.json();
-                throw new Error(responseJson.msg || 'Logout gagal');
+                throw new Error(responseJson.msg || 'Gagal mendapatkan data pengguna');
             }
 
-            localStorage.removeItem('accessToken');
-            // Additional clean up if needed
-
-            return response.json();
+            return responseJson;
         } catch (error) {
-            alert(error.message);
+            // alert(error.message);
             return null;
         }
     }

@@ -235,6 +235,7 @@ import './edukasi';
 import './informasi-obat';
 import './login';
 import './main';
+import './medicines'
 
 document.addEventListener('DOMContentLoaded', () => {
   const menuItems = document.querySelectorAll('.app-bar .app-bar__navigation ul li a');
@@ -321,4 +322,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-

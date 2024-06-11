@@ -1,5 +1,8 @@
+import TheHealthcareSourceUser from "./data/healthcaredb-source-user";
+
 // Event listener untuk memastikan DOM sudah sepenuhnya dimuat sebelum menjalankan script
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  const app_drawer = document.querySelector('.nav-ul');
   console.log('DOM fully loaded and parsed');
 
   // Objek yang berisi referensi ke formulir login dan signup
@@ -14,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const sectionId in sections) {
       if (sections.hasOwnProperty(sectionId)) {
         const section = sections[sectionId];
-        // Menampilkan formulir yang dipilih dan menyembunyikan yang lainnya
         section.style.display = sectionId === formId ? 'block' : 'none';
       }
     }
@@ -68,23 +70,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       try {
-        // Menyimpan email dan password ke localStorage sebagai simulasi registrasi
-        localStorage.setItem('registeredEmail', email);
-        localStorage.setItem('registeredPassword', password);
-
-        alert('Registrasi berhasil!');
-        showForm('Login', email, password); // Menampilkan formulir login dengan mengisi email dan password
+        // Menjalankan registrasi dengan menggunakan objek TheHealthcareSourceUser
+        const response = await TheHealthcareSourceUser.register(name, email, password, confirmPassword);
+        if (response) {
+          // alert('Registrasi berhasil!');
+          showForm('Login');
+        }
         
         // Setelah login berhasil, ubah tampilan menjadi logo "user.jpg"
         const loginLink = document.getElementById('loginLink');
+
         if (loginLink) {
           loginLink.innerHTML = '<img src="user.jpg" alt="User" style="width: 80px; height: auto;">';
-          // Sembunyikan tulisan login
-          loginLink.style.color = 'transparent';
-          // Sembunyikan latar belakang login
-          loginLink.style.background = 'none';
+          loginLink.style.display = 'none'
         }
-        
       } catch (error) {
         console.error('Registrasi gagal:', error.message);
         alert('Registrasi gagal: ' + error.message);
@@ -101,23 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
       // Mengambil nilai input dari formulir login
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
-
-      // Mengambil data email dan password yang terdaftar dari localStorage
-      const registeredEmail = localStorage.getItem('registeredEmail');
-      const registeredPassword = localStorage.getItem('registeredPassword');
-
-      // Memeriksa kecocokan email dan password yang dimasukkan dengan yang terdaftar
-      if (email === registeredEmail && password === registeredPassword) {
-        alert('Sign in berhasil!');
-
-        // Ubah tampilan menjadi logo "user.jpg"
+        // Menjalankan proses login dengan menggunakan objek TheHealthcareSourceUser
+        const response = await TheHealthcareSourceUser.login(email, password);
+        if (response) {
         const loginLink = document.getElementById('loginLink');
-        if (loginLink) {
-          loginLink.innerHTML = '<img src="user.jpg" alt="User" style="width: 80px; height: auto;">';
-          // Sembunyikan tulisan login
-          loginLink.style.color = 'transparent';
-          // Sembunyikan latar belakang login
-          loginLink.style.background = 'none';
+        if (loginLink){
+          loginLink.style.display = 'none';
+          window.location.reload();
         }
       } else {
         alert('Email atau password salah');
@@ -144,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Tombol submit login diklik');
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
+
       
       if (email && password) {
         // Memeriksa kecocokan email dan password yang dimasukkan dengan yang terdaftar
@@ -160,10 +150,62 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+      // Periksa apakah token akses masih valid
+      const user = await TheHealthcareSourceUser.getUser();
+      if (user) {
+        console.log('Pengguna masih dalam kondisi login');
+        const loginLink = document.getElementById('loginLink');
+        if (loginLink) {
+          loginLink.style.display = 'none'
+          // Sembunyikan tulisan login
+          loginLink.style.color = 'transparent';
+          // Sembunyikan latar belakang login
+          loginLink.style.background = 'none';
+          loginForm.style.display = 'none';
+          // Buat elemen <li> baru
+          const eduListItem = document.createElement('li');
 
-  // Menampilkan formulir login sebagai default
+          // Buat elemen <button> baru
+          const logoutButton = document.createElement('button');
+
+          // Tambahkan kelas ke elemen <button>
+          logoutButton.classList.add('logout-button');
+
+          // Set atribut href untuk link
+          logoutButton.textContent = 'Logout'; // Teks yang ditampilkan di dalam tombol
+
+          // Tambahkan event listener untuk event klik
+          logoutButton.addEventListener('click', async () => {
+              try {
+                  const response = await TheHealthcareSourceUser.logout();
+                  window.location.reload();
+                  if (response) {
+                      window.location.href = '/login'; // Ganti '/login' dengan URL halaman login yang benar
+                      
+                  }
+              } catch (error) {
+                  console.error('Logout gagal:', error.message);
+              }
+          });
+
+          // Masukkan elemen <button> ke dalam elemen <li>
+          eduListItem.appendChild(logoutButton);
+
+          // Masukkan elemen <li> ke dalam .app-bar__navigation
+          app_drawer.appendChild(eduListItem);
+
+
+        }
+      } else {
+        console.log('Pengguna perlu login kembali');
+        loginForm.style.display = 'block';
+        
+        showForm('Login');
+      }
+
+// Menampilkan formulir login sebagai default jika pengguna belum login
+if (!user) {
   showForm('Login');
+}
+  
 });
-
-
-//logo login
