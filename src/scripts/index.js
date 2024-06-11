@@ -8,7 +8,7 @@
 //   const sections = {
 //     Beranda: document.getElementById('Beranda'),
 //     'Informasi-Obat': document.getElementById('Informasi-Obat'),
-//     Edukasi: document.getElementById('Edukasi'), 
+//     Edukasi: document.getElementById('Edukasi'),
 //     Login: document.getElementById('login-form'),
 //     MainContent: document.getElementById('mainContent')
 //   };
@@ -128,7 +128,7 @@
 //     document.getElementById('signup-form').style.display = 'block';
 //   });
 // }
-  
+
 //   // Event listener for registration form
 //   const registrationForm = document.getElementById('signup-form');
 //   if (registrationForm) {
@@ -225,32 +225,32 @@
 //   }
 // }
 
+import "regenerator-runtime";
+import "../styles/style.css";
+import "../styles/responsive.css";
+import "./beranda";
+import "./edukasi";
+import "./informasi-obat";
+import "./login";
+import "./main";
+import "./medicines";
 
-
-import 'regenerator-runtime';
-import '../styles/style.css';
-import '../styles/responsive.css';
-import './beranda';
-import './edukasi';
-import './informasi-obat';
-import './login';
-import './main';
-import './medicines'
-
-document.addEventListener('DOMContentLoaded', () => {
-  const menuItems = document.querySelectorAll('.app-bar .app-bar__navigation ul li a');
+document.addEventListener("DOMContentLoaded", () => {
+  const menuItems = document.querySelectorAll(
+    ".app-bar .app-bar__navigation ul li a"
+  );
   const sections = {
-    Beranda: document.getElementById('Beranda'),
-    'Informasi-Obat': document.getElementById('Informasi-Obat'),
-    Edukasi: document.getElementById('Edukasi'), 
-    Login: document.getElementById('login-form'),
-    MainContent: document.getElementById('mainContent')
+    Beranda: document.getElementById("Beranda"),
+    "Informasi-Obat": document.getElementById("Informasi-Obat"),
+    Edukasi: document.getElementById("Edukasi"),
+    Login: document.getElementById("login-form"),
+    MainContent: document.getElementById("mainContent"),
   };
 
   // Function to hide all forms
   const hideAllForms = () => {
-    document.querySelectorAll('.login-form, .signup-form').forEach(form => {
-      form.style.display = 'none';
+    document.querySelectorAll(".login-form, .signup-form").forEach((form) => {
+      form.style.display = "none";
     });
   };
 
@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const hideAllSectionsExcept = (exceptSection) => {
     Object.entries(sections).forEach(([key, section]) => {
       if (key !== exceptSection && section) {
-        section.style.display = 'none';
+        section.style.display = "none";
       }
     });
   };
@@ -267,57 +267,57 @@ document.addEventListener('DOMContentLoaded', () => {
   const showSection = (sectionId) => {
     const section = sections[sectionId];
     if (section) {
-      section.style.display = 'block';
+      section.style.display = "block";
     }
   };
 
   // Event listener for menu items
-  menuItems.forEach(item => {
-    item.addEventListener('click', function(event) {
+  menuItems.forEach((item) => {
+    item.addEventListener("click", function (event) {
       event.preventDefault();
 
       // Remove 'active' class from all menu items
-      menuItems.forEach(i => i.classList.remove('active'));
+      menuItems.forEach((i) => i.classList.remove("active"));
 
       // Add 'active' class to the clicked menu item
-      this.classList.add('active');
+      this.classList.add("active");
 
       // Hide all forms and sections
       hideAllForms();
-      const targetId = this.getAttribute('href').substring(2);
+      const targetId = this.getAttribute("href").substring(2);
       hideAllSectionsExcept(targetId);
 
       // Show the targeted section
       showSection(targetId);
 
       // If login is not selected, show mainContent
-      if (targetId !== 'Login') {
-        showSection('MainContent');
+      if (targetId !== "Login") {
+        showSection("MainContent");
       }
     });
   });
 
   // Toggling navigation drawer
-  const hamburgerButton = document.getElementById('hamburgerButton');
-  const navigationDrawer = document.getElementById('navigationDrawer');
+  const hamburgerButton = document.getElementById("hamburgerButton");
+  const navigationDrawer = document.getElementById("navigationDrawer");
 
   if (hamburgerButton && navigationDrawer) {
-    hamburgerButton.addEventListener('click', () => {
-      navigationDrawer.classList.toggle('open');
+    hamburgerButton.addEventListener("click", () => {
+      navigationDrawer.classList.toggle("open");
     });
   }
 
-  const navLinks = document.querySelectorAll('.app-bar__navigation a');
+  const navLinks = document.querySelectorAll(".app-bar__navigation a");
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', (event) => {
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
       event.preventDefault();
-      const targetId = link.getAttribute('href').substring(2);
+      const targetId = link.getAttribute("href").substring(2);
       const targetSection = document.getElementById(targetId);
 
       if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-        navigationDrawer.classList.remove('open');
+        targetSection.scrollIntoView({ behavior: "smooth" });
+        navigationDrawer.classList.remove("open");
       }
     });
   });

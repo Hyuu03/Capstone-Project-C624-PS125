@@ -1,360 +1,604 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free movie catalogue for you">
-  <link rel="icon" href="./favicon.jpg">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <title>Health and Medicine Information</title>
-</head>
-<body>
-  <header class="app-bar">
-    <div class="app-bar__menu">
-      <button id="hamburgerButton">☰</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Free movie catalogue for you" />
+    <link rel="icon" href="./favicon.jpg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Health and Medicine Information</title>
+  </head>
+  <body>
+    <header class="app-bar">
+      <div class="app-bar__menu">
+        <button id="hamburgerButton">☰</button>
+      </div>
+      <div class="app-bar__brand">
+        <h1><img src="./favicon.jpg" alt="Logo" /></h1>
+      </div>
+      <nav id="navigationDrawer" class="app-bar__navigation">
+        <ul class="nav-ul">
+          <li><a href="#/Beranda">Beranda</a></li>
+          <li><a href="#/Informasi-Obat">Informasi Obat</a></li>
+          <li><a href="#/Edukasi">Edukasi</a></li>
+          <li>
+            <a
+              href="#/Login"
+              id="loginLink"
+              style="
+                color: #2d511d;
+                font-weight: bold;
+                border-radius: 20px;
+                width: 80px;
+                background-color: white;
+              "
+              >Login</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="login-form" id="login-form">
+      <h2>Sign In</h2>
+      <form id="signInForm">
+        <div class="form-group">
+          <label for="email">Email or Phone Number</label>
+          <input type="text" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="form-group">
+          <input type="checkbox" id="remember-me" name="remember-me" />
+          <label for="remember-me">Remember Me</label>
+        </div>
+        <button type="submit" class="login-btn" id="signInButton">
+          Sign In
+        </button>
+      </form>
+      <p>Don't have an account? <a href="#" id="signUpLink">Sign Up</a></p>
+      <p>Need help?</p>
     </div>
-    <div class="app-bar__brand">
-      <h1><img src="./favicon.jpg" alt="Logo"></h1>
+
+    <div class="signup-form" id="signup-form" style="display: none">
+      <h2>Sign Up</h2>
+      <form id="signUpForm">
+        <div class="form-group">
+          <label for="new-name">Name</label>
+          <input type="text" id="new-name" name="new-name" required />
+        </div>
+        <div class="form-group">
+          <label for="new-email">Email</label>
+          <input type="email" id="new-email" name="new-email" required />
+        </div>
+        <div class="form-group">
+          <label for="new-password">Password</label>
+          <input
+            type="password"
+            id="new-password"
+            name="new-password"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            required
+          />
+        </div>
+        <button type="submit" class="signup-btn" id="signUpButton">
+          Sign Up
+        </button>
+      </form>
     </div>
-    <nav id="navigationDrawer" class="app-bar__navigation">
-      <ul class="nav-ul">
-       <li><a href="#/Beranda">Beranda</a></li>
-<li><a href="#/Informasi-Obat">Informasi Obat</a></li>
-<li><a href="#/Edukasi">Edukasi</a></li>
-<li><a href="#/Login" id="loginLink" style="color: #2d511d; font-weight: bold; border-radius: 20px; width: 80px; background-color: white;">Login</a></li>
 
-      </ul>
-    </nav>
-  </header>
-
-  <div class="login-form" id="login-form">
-    <h2>Sign In</h2>
-    <form id="signInForm">
-      <div class="form-group">
-        <label for="email">Email or Phone Number</label>
-        <input type="text" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-      <div class="form-group">
-        <input type="checkbox" id="remember-me" name="remember-me">
-        <label for="remember-me">Remember Me</label>
-      </div>
-      <button type="submit" class="login-btn" id="signInButton">Sign In</button>
-    </form>
-    <p>Don't have an account? <a href="#" id="signUpLink">Sign Up</a></p>
-    <p>Need help?</p>
-  </div>
-
-  <div class="signup-form" id="signup-form" style="display: none;">
-    <h2>Sign Up</h2>
-    <form id="signUpForm">
-      <div class="form-group">
-        <label for="new-name">Name</label>
-        <input type="text" id="new-name" name="new-name" required>
-      </div>
-      <div class="form-group">
-        <label for="new-email">Email</label>
-        <input type="email" id="new-email" name="new-email" required>
-      </div>
-      <div class="form-group">
-        <label for="new-password">Password</label>
-        <input type="password" id="new-password" name="new-password" required>
-      </div>
-      <div class="form-group">
-        <label for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" name="confirm-password" required>
-      </div>
-      <button type="submit" class="signup-btn" id="signUpButton">Sign Up</button>
-    </form>
-  </div>
-
-  <main id="mainContent">
-    <section id="Beranda">
-      <div class="hero">
-        <div class="TampilAwal">
-          <h1>Welcome to the Health and Medicine Website</h1>
-          <p>
-            Halo semuanya! Selamat datang di platform kami. Kami sangat senang bisa menyambut Anda di sini. Apakah kalian sudah mengetahui tentang ilmu kesehatan dan obat-obatan? Biasanya, pengetahuan mendalam tentang topik ini diperoleh melalui disiplin ilmu kesehatan. Namun, melalui web app ini, Anda tidak perlu lagi bersusah payah mencari informasi terkini tentang kesehatan di Indonesia dan berbagai informasi terkait obat-obatan. Kami hadir untuk membantu Anda menangani berbagai permasalah/kebingungan dan kebutuhan informasi kesehatan.
-
-Dengan antarmuka yang user-friendly dan konten yang selalu diperbarui, kami berkomitmen untuk menyediakan informasi yang akurat dan relevan. Dari artikel edukatif, tips kesehatan, hingga ulasan lengkap tentang obat-obatan, semuanya bisa Anda temukan di sini, sehingga Anda bisa mendapatkan jawaban langsung dari sumber yang kompeten.
-
-Tetap pantau terus situs ini untuk mendapatkan informasi terpercaya dan terbaru! Terima kasih telah menjadi bagian dari komunitas kami. Bersama-sama, kita bisa mencapai kesehatan yang lebih baik dan meningkatkan kualitas hidup. Selamat menjelajahi, dan semoga Anda menemukan semua yang Anda butuhkan di sini.
-
-Jangan ragu untuk mengeksplorasi berbagai fitur yang kami tawarkan, mulai dari artikel mendalam, video tutorial, hingga infografis yang informatif. Kami juga mengundang anda untuk memberikan masukan yang bisa membantu kami menjadi lebih baik lagi.
-
-Selamat datang, dan mari kita mulai perjalanan menuju kesehatan yang lebih baik bersama-sama!
-
-Kami juga berkomitmen untuk menjaga privasi dan keamanan data Anda. Semua informasi yang Anda bagikan di platform ini akan dijaga kerahasiaannya sesuai dengan standar keamanan digital terbaik. Kami berharap, dengan hadirnya platform ini, Anda bisa mendapatkan informasi yang dibutuhkan dengan mudah dan cepat.
-
-Nikmati akses ke berbagai alat kesehatan digital, seperti kalkulator kesehatan, pengingat obat, dan banyak lagi, yang dirancang untuk mendukung gaya hidup sehat Anda. Kami percaya bahwa dengan pengetahuan yang tepat dan dukungan yang memadai, setiap orang bisa mencapai kesehatan optimal.
-
-Terima kasih telah mempercayakan kebutuhan informasi kesehatan Anda kepada kami. Kami siap untuk mendampingi perjalanan Anda menuju hidup yang lebih sehat dan sejahtera. Selamat menjelajah, dan semoga pengalaman Anda di sini bermanfaat! happy search :]
-          </p>
-        </div>
-      </div>
-
-      <div class="obat">
-        <h2 class="heading">Informasi Obat</h2>
-        <div class="groupObat">
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text">Sakit A</div>
-            </a>
-          </div>
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text">Sakit A</div>
-            </a>
-          </div>
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text">Sakit A</div>
-            </a>
-          </div>
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text">Sakit A</div>
-            </a>
+    <main id="mainContent">
+      <section id="Beranda">
+        <div class="hero">
+          <div class="TampilAwal">
+            <h1>Welcome to the Health and Medicine Website</h1>
+            <p>
+              Halo semuanya! Selamat datang di platform kami. Kami sangat senang
+              bisa menyambut Anda di sini. Apakah kalian sudah mengetahui
+              tentang ilmu kesehatan dan obat-obatan? Biasanya, pengetahuan
+              mendalam tentang topik ini diperoleh melalui disiplin ilmu
+              kesehatan. Namun, melalui web app ini, Anda tidak perlu lagi
+              bersusah payah mencari informasi terkini tentang kesehatan di
+              Indonesia dan berbagai informasi terkait obat-obatan. Kami hadir
+              untuk membantu Anda menangani berbagai permasalah/kebingungan dan
+              kebutuhan informasi kesehatan. Dengan antarmuka yang user-friendly
+              dan konten yang selalu diperbarui, kami berkomitmen untuk
+              menyediakan informasi yang akurat dan relevan. Dari artikel
+              edukatif, tips kesehatan, hingga ulasan lengkap tentang
+              obat-obatan, semuanya bisa Anda temukan di sini, sehingga Anda
+              bisa mendapatkan jawaban langsung dari sumber yang kompeten. Tetap
+              pantau terus situs ini untuk mendapatkan informasi terpercaya dan
+              terbaru! Terima kasih telah menjadi bagian dari komunitas kami.
+              Bersama-sama, kita bisa mencapai kesehatan yang lebih baik dan
+              meningkatkan kualitas hidup. Selamat menjelajahi, dan semoga Anda
+              menemukan semua yang Anda butuhkan di sini. Jangan ragu untuk
+              mengeksplorasi berbagai fitur yang kami tawarkan, mulai dari
+              artikel mendalam, video tutorial, hingga infografis yang
+              informatif. Kami juga mengundang anda untuk memberikan masukan
+              yang bisa membantu kami menjadi lebih baik lagi. Selamat datang,
+              dan mari kita mulai perjalanan menuju kesehatan yang lebih baik
+              bersama-sama! Kami juga berkomitmen untuk menjaga privasi dan
+              keamanan data Anda. Semua informasi yang Anda bagikan di platform
+              ini akan dijaga kerahasiaannya sesuai dengan standar keamanan
+              digital terbaik. Kami berharap, dengan hadirnya platform ini, Anda
+              bisa mendapatkan informasi yang dibutuhkan dengan mudah dan cepat.
+              Nikmati akses ke berbagai alat kesehatan digital, seperti
+              kalkulator kesehatan, pengingat obat, dan banyak lagi, yang
+              dirancang untuk mendukung gaya hidup sehat Anda. Kami percaya
+              bahwa dengan pengetahuan yang tepat dan dukungan yang memadai,
+              setiap orang bisa mencapai kesehatan optimal. Terima kasih telah
+              mempercayakan kebutuhan informasi kesehatan Anda kepada kami. Kami
+              siap untuk mendampingi perjalanan Anda menuju hidup yang lebih
+              sehat dan sejahtera. Selamat menjelajah, dan semoga pengalaman
+              Anda di sini bermanfaat! happy search :]
+            </p>
           </div>
         </div>
 
-        <div class="lihat-semua">
-          <div class="containerText">
-            <a href="">
-              <p>Lihat Semua</p>
-            </a>
+        <div class="obat">
+          <h2 class="heading">Informasi Obat</h2>
+          <div class="groupObat">
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text">Sakit A</div>
+              </a>
+            </div>
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text">Sakit A</div>
+              </a>
+            </div>
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text">Sakit A</div>
+              </a>
+            </div>
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text">Sakit A</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="lihat-semua">
+            <div class="containerText">
+              <a href="">
+                <p>Lihat Semua</p>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="edukasi">
-        <div class="judul">
-          <h2 class="heading2">Edukasi</h2>
-          <a href="#Edukasi">Lihat Semua</a>
+        <div class="edukasi">
+          <div class="judul">
+            <h2 class="heading2">Edukasi</h2>
+            <a href="#Edukasi">Lihat Semua</a>
+          </div>
+
+          <div class="groupEdukasi">
+            <div class="VideoEdukasi">
+              <a href="https://youtu.be/vGIGTX0x46Q?si=F7hp0uMtwzzXZCce">
+                <img src="Edukasi-Tentang-Obat-1.jpg" alt="Video 1" />
+                <h3>Peran Obat dalam Menghancurkan Penyakit</h3>
+              </a>
+            </div>
+
+            <div class="VideoEdukasi">
+              <a href="https://youtu.be/3rmwhearFKU?si=a0wUmFOIg8Yovc5G">
+                <img src="obat-generik-dan-obat-paten.jpg" alt="Video 2" />
+                <h3>Judul Video 2</h3>
+              </a>
+            </div>
+
+            <div class="VideoEdukasi">
+              <a href="https://youtu.be/URIDZtdDti0?si=ziKM8F09zjQi5xmn">
+                <img src="obat-campur-campur.jpg" alt="Video 3" />
+                <h3>Boleh gk yah minum obat asal asalan?</h3>
+              </a>
+            </div>
+
+            <div class="VideoEdukasi">
+              <a href="https://youtu.be/Q7ozaVytNo4?si=5xwRyAXQWBHnTvct">
+                <img src="fakta-mitos-remaja.jpg" alt="Video 4" />
+                <h3>Judul mitos atau fakta yah?</h3>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="Informasi-Obat">
+        <div class="obat2">
+          <div class="search">
+            <form action="#">
+              <input type="text" placeholder="Search Courses" name="search" />
+              <button>
+                <i class="fa fa-search" style="font-size: 18px"></i>
+              </button>
+            </form>
+          </div>
+          <h2 class="heading2">Informasi Obat</h2>
+          <div class="groupObat2">
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text2">Sakit A</div>
+              </a>
+            </div>
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text2">Sakit A</div>
+              </a>
+            </div>
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text2">Sakit A</div>
+              </a>
+            </div>
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text2">Sakit A</div>
+              </a>
+            </div>
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text2">Sakit A</div>
+              </a>
+            </div>
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text2">Sakit A</div>
+              </a>
+            </div>
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text2">Sakit A</div>
+              </a>
+            </div>
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text2">Sakit A</div>
+              </a>
+            </div>
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text2">Sakit A</div>
+              </a>
+            </div>
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text2">Sakit A</div>
+              </a>
+            </div>
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text2">Sakit A</div>
+              </a>
+            </div>
+            <div class="jenisObat">
+              <a href="#">
+                <div class="ellipse"></div>
+                <div class="text2">Sakit A</div>
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div class="groupEdukasi">
-          <div class="VideoEdukasi">
-            <a href="https://youtu.be/vGIGTX0x46Q?si=F7hp0uMtwzzXZCce">
+        <div class="drug-list">
+          <h2>Daftar Obat</h2>
+          <div class="drug-grid"></div>
+          <div class="pagination">
+            <a href="#">&laquo;&laquo;</a>
+            <a href="#">&lsaquo;</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <span>....</span>
+            <a href="#">16</a>
+            <a href="#">17</a>
+            <a href="#">18</a>
+            <a href="#">19</a>
+            <a href="#">20</a>
+            <a href="#">&rsaquo;</a>
+            <a href="#">&raquo;&raquo;</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="Edukasi" class="edukasi-menu">
+        <div class="container">
+          <h2>Video Edukasi Kesehatan</h2>
+          <div class="video-grid">
+            <!-- Video 1 -->
+            <div class="video-item">
               <img src="Edukasi-Tentang-Obat-1.jpg" alt="Video 1" />
               <h3>Peran Obat dalam Menghancurkan Penyakit</h3>
-            </a>
-          </div>
+              <p>
+                Mari perhatikan video ini karena penting loh untuk pengetahuan
+                kita tentang peran obat yang harus kita ketahui:'
+              </p>
+              <a href="https://youtu.be/vGIGTX0x46Q?si=F7hp0uMtwzzXZCce"
+                >Tonton Video 1 di YouTube</a
+              >
+            </div>
 
-          <div class="VideoEdukasi">
-            <a href="https://youtu.be/3rmwhearFKU?si=a0wUmFOIg8Yovc5G">
+            <!-- Video 2 -->
+            <div class="video-item">
               <img src="obat-generik-dan-obat-paten.jpg" alt="Video 2" />
               <h3>Judul Video 2</h3>
-            </a>
-          </div>
+              <p>
+                Jadi kita harus tau nih obat-obtan yang mana yang dapat kita
+                beli langsung dan mana obat yang harus dengan resep dokter
+              </p>
+              <a href="https://youtu.be/3rmwhearFKU?si=a0wUmFOIg8Yovc5G"
+                >Tonton Video 2 di YouTube</a
+              >
+            </div>
 
-          <div class="VideoEdukasi">
-            <a href="https://youtu.be/URIDZtdDti0?si=ziKM8F09zjQi5xmn">
+            <!-- Video 3 -->
+            <div class="video-item">
               <img src="obat-campur-campur.jpg" alt="Video 3" />
               <h3>Boleh gk yah minum obat asal asalan?</h3>
-            </a>
-          </div>
+              <p>
+                Jangan minu obat campur campur yah karena obat yang
+                campur-campur akan berakibat fatal dan berbahaya bagi hidup
+                kita. mari lebih care terhadapt dir kita tentang pentingnya
+                minum obat sesuai anjuran dokter. Karena kita gk belajar tentang
+                kandungan obat dan tentang obat obatan. Banyak bahys deh kalo
+                minum obat asal asalan dan campur campur :],
+              </p>
+              <a href="https://youtu.be/URIDZtdDti0?si=ziKM8F09zjQi5xmn"
+                >Tonton Video 3 di YouTube</a
+              >
+            </div>
 
-          <div class="VideoEdukasi">
-            <a href="https://youtu.be/Q7ozaVytNo4?si=5xwRyAXQWBHnTvct">
+            <!-- Video 4 -->
+            <div class="video-item">
               <img src="fakta-mitos-remaja.jpg" alt="Video 4" />
               <h3>Judul mitos atau fakta yah?</h3>
-            </a>
+              <p>
+                Ini nih fakta dan mitos yang berkembang di kalangan masyarakat
+                dari yang muda sampai yang tua. Yuk simak video di bawah ini
+                dengan baik yah. Semoga kita gak salah lagi dan bisa membedakan
+                mana yang fakta dan mitos karena itu penting loh.
+              </p>
+              <a href="https://youtu.be/Q7ozaVytNo4?si=5xwRyAXQWBHnTvct"
+                >Tonton Video 4 di YouTube</a
+              >
+            </div>
+
+            <!-- Video 5 -->
+            <div class="video-item">
+              <img src="no-rokok.jpg" alt="Video 5" />
+              <h3>Jangan Ngerokok Lagi Yahh</h3>
+              <p>
+                Buat kita nih yang masih suka merokok, ayuk jauhi ngerokok yuk.
+                kita tahu bahayanya merokok dan kita juga sudah tau manfat
+                menjauhi rokok. yok tonton video biar kita sehat dan orang orang
+                di sekitar kita juga ikut sehat.
+              </p>
+              <a href="https://youtu.be/fUlfpFi1Dao?si=kzp6dOdc0faZOaF-"
+                >Tonton Video 5 di YouTube</a
+              >
+            </div>
+
+            <!-- Video 6 -->
+            <div class="video-item">
+              <img src="8 cara.jpg" alt="Video 6" />
+              <h3>8 Tips Kesehatan</h3>
+              <p>
+                Ini nih tips kesehatan yang mungkin banyak orang tau tapi sering
+                lupa tau bahhkan sering dilupakan loh. Tolong jaga kesehatan
+                yang karena kesehatan itu mahal banget guyss
+              </p>
+              <a href="https://youtu.be/_JtsswlZzPg?si=zrKFkuyESZSOvlwW"
+                >Tonton Video 6 di YouTube</a
+              >
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="Informasi-Obat">
-      <div class="obat2">
-        <div class="search">
-          <form action="#">
-            <input type="text" placeholder="Search Courses" name="search" />
-            <button>
+      <!-- DASHBOARD TAMBAH & EDIT-->
+      <div class="table-container">
+        <h1>Kelola Data Obat</h1>
+        <div class="search-add-container">
+          <div class="search-bar">
+            <input type="text" placeholder="Cari obat" />
+            <button class="search-btn">
               <i class="fa fa-search" style="font-size: 18px"></i>
             </button>
-          </form>
+          </div>
+          <button class="add-btn">+ Tambah Obat</button>
         </div>
-        <h2 class="heading2">Informasi Obat</h2>
-        <div class="groupObat2">
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text2">Sakit A</div>
-            </a>
-          </div>
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text2">Sakit A</div>
-            </a>
-          </div>
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text2">Sakit A</div>
-            </a>
-          </div>
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text2">Sakit A</div>
-            </a>
-          </div>
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text2">Sakit A</div>
-            </a>
-          </div>
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text2">Sakit A</div>
-            </a>
-          </div>
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text2">Sakit A</div>
-            </a>
-          </div>
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text2">Sakit A</div>
-            </a>
-          </div>
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text2">Sakit A</div>
-            </a>
-          </div>
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text2">Sakit A</div>
-            </a>
-          </div>
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text2">Sakit A</div>
-            </a>
-          </div>
-          <div class="jenisObat">
-            <a href="#">
-              <div class="ellipse"></div>
-              <div class="text2">Sakit A</div>
-            </a>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Nama Obat</th>
+              <th>Id Obat</th>
+              <th>Class Therapy</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nama Obat</td>
+              <td>0000000000</td>
+              <td>Sakit</td>
+              <td>
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Hapus</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Nama Obat</td>
+              <td>0000000000</td>
+              <td>Sakit</td>
+              <td>
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Hapus</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="paginationDashboard">
+          <span>Showing 1 - 10 results of 298</span>
+          <div class="paginationDashboard-buttons">
+            <button>&lt;</button>
+            <span>Page 01</span>
+            <button>&gt;</button>
           </div>
         </div>
       </div>
 
-      <div class="drug-list">
-        <h2>Daftar Obat</h2>
-        <div class="drug-grid">
+      <div class="containerTambah">
+        <h1>Kelola Data Obat</h1>
+        <h2>Tambah Obat</h2>
+        <form>
+          <label for="nama-obat">Nama Obat</label>
+          <input type="text" id="nama-obat" name="nama-obat" />
 
-        </div>
-        <div class="pagination">
-          <a href="#">&laquo;&laquo;</a>
-          <a href="#">&lsaquo;</a>
-          <a href="#" class="active">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
-          <span>....</span>
-          <a href="#">16</a>
-          <a href="#">17</a>
-          <a href="#">18</a>
-          <a href="#">19</a>
-          <a href="#">20</a>
-          <a href="#">&rsaquo;</a>
-          <a href="#">&raquo;&raquo;</a>
-        </div>
+          <label for="class_therapy">Class Therapy</label>
+          <input type="text" id="class_therapy" name="class_therapy" />
+
+          <label for="subclass_therapy1">Subclass Therapy 1</label>
+          <input type="text" id="indikasi-umum" name="indikasi-umum" />
+
+          <label for="subclass_therapy2">Subclass Therapy 2</label>
+          <input type="text" id="subclass_therapy2" name="subclass_therapy2" />
+
+          <label for="subclass_therapy3">Subclass Therapy 3</label>
+          <input type="text" id="subclass_therapy3" name="subclass_therapy3" />
+
+          <label for="power">Power</label>
+          <input type="text" id="power" name="power" />
+
+          <label for="unit">Unit</label>
+          <input type="text" id="unit" name="unit" />
+
+          <label for="type">Type</label>
+          <input type="text" id="type" name="type" />
+
+          <label for="composition">Composition</label>
+          <input type="text" id="composition" name="composition" />
+
+          <label for="drug_restrictions">Drug Restrictions</label>
+          <input type="text" id="drug_restrictions" name="drug_restrictions" />
+
+          <label for="maximum_prescription">Maximum Prescription</label>
+          <input
+            type="text"
+            id="maximum_prescription"
+            name="maximum_prescription"
+          />
+
+          <div class="buttons">
+            <button type="submit" class="btn-tambah">Tambah</button>
+            <button type="button" class="btn-batal">Batal</button>
+          </div>
+        </form>
       </div>
-    </section>
 
-    <section id="Edukasi" class="edukasi-menu">
-      <div class="container">
-        <h2>Video Edukasi Kesehatan</h2>
-        <div class="video-grid">
-         <!-- Video 1 -->
-<div class="video-item">
-  <img src="Edukasi-Tentang-Obat-1.jpg" alt="Video 1">
-  <h3>Peran Obat dalam Menghancurkan Penyakit</h3>
-  <p>Mari perhatikan video ini karena penting loh untuk pengetahuan kita tentang peran obat yang harus kita ketahui:'</p>
-  <a href="https://youtu.be/vGIGTX0x46Q?si=F7hp0uMtwzzXZCce">Tonton Video 1 di YouTube</a>
-</div>
+      <div class="containerEdit">
+        <h1>Kelola Data Obat</h1>
+        <h2>Edit Obat</h2>
+        <form>
+          <label for="nama-obat">Nama Obat</label>
+          <input type="text" id="nama-obat" name="nama-obat" />
 
-<!-- Video 2 -->
-<div class="video-item">
-  <img src="obat-generik-dan-obat-paten.jpg" alt="Video 2">
-  <h3>Judul Video 2</h3>
-  <p>Jadi kita harus tau nih obat-obtan yang mana yang dapat kita beli langsung dan mana obat yang harus dengan resep dokter </p>
-  <a href="https://youtu.be/3rmwhearFKU?si=a0wUmFOIg8Yovc5G">Tonton Video 2 di YouTube</a>
-</div>
+          <label for="class_therapy">Class Therapy</label>
+          <input type="text" id="class_therapy" name="class_therapy" />
 
-<!-- Video 3 -->
-<div class="video-item">
-  <img src="obat-campur-campur.jpg" alt="Video 3">
-  <h3>Boleh gk yah minum obat asal asalan?</h3>
-  <p>Jangan minu obat campur campur yah karena obat yang campur-campur akan berakibat fatal dan berbahaya bagi hidup kita. mari lebih care terhadapt dir kita tentang pentingnya minum obat sesuai anjuran dokter. Karena kita gk belajar tentang kandungan obat dan tentang obat obatan. 
-    Banyak bahys deh kalo minum obat asal asalan dan campur campur :], </p>
-  <a href="https://youtu.be/URIDZtdDti0?si=ziKM8F09zjQi5xmn">Tonton Video 3 di YouTube</a>
-</div>
+          <label for="subclass_therapy1">Subclass Therapy 1</label>
+          <input type="text" id="indikasi-umum" name="indikasi-umum" />
 
-<!-- Video 4 -->
-<div class="video-item">
-  <img src="fakta-mitos-remaja.jpg" alt="Video 4">
-  <h3>Judul mitos atau fakta yah?</h3>
-  <p>Ini nih  fakta dan mitos yang berkembang di kalangan masyarakat dari yang muda sampai yang tua.
-    Yuk simak video di bawah ini dengan baik yah. Semoga kita gak salah lagi dan bisa membedakan mana yang fakta dan mitos karena itu penting loh. 
-  </p>
-  <a href="https://youtu.be/Q7ozaVytNo4?si=5xwRyAXQWBHnTvct">Tonton Video 4 di YouTube</a>
-</div>
+          <label for="subclass_therapy2">Subclass Therapy 2</label>
+          <input type="text" id="subclass_therapy2" name="subclass_therapy2" />
 
-<!-- Video 5 -->
-<div class="video-item">
-  <img src="no-rokok.jpg" alt="Video 5">
-  <h3>Jangan Ngerokok Lagi Yahh</h3>
-  <p>Buat kita nih yang masih suka merokok, ayuk jauhi ngerokok yuk. kita tahu bahayanya merokok dan kita juga sudah tau manfat menjauhi rokok. 
-    yok tonton video biar kita sehat dan orang orang di sekitar kita juga ikut sehat.
-  </p>
-  <a href="https://youtu.be/fUlfpFi1Dao?si=kzp6dOdc0faZOaF-">Tonton Video 5 di YouTube</a>
-</div>
+          <label for="subclass_therapy3">Subclass Therapy 3</label>
+          <input type="text" id="subclass_therapy3" name="subclass_therapy3" />
 
-<!-- Video 6 -->
-<div class="video-item">
-  <img src="8 cara.jpg" alt="Video 6">
-  <h3>8 Tips Kesehatan</h3>
-  <p>Ini nih tips kesehatan yang mungkin banyak orang tau tapi sering lupa tau bahhkan sering dilupakan loh.
-    Tolong jaga kesehatan yang karena kesehatan itu mahal banget guyss </p>
-  <a href="https://youtu.be/_JtsswlZzPg?si=zrKFkuyESZSOvlwW">Tonton Video 6 di YouTube</a>
-</div>
-        </div>
+          <label for="power">Power</label>
+          <input type="text" id="power" name="power" />
 
+          <label for="unit">Unit</label>
+          <input type="text" id="unit" name="unit" />
+
+          <label for="type">Type</label>
+          <input type="text" id="type" name="type" />
+
+          <label for="composition">Composition</label>
+          <input type="text" id="composition" name="composition" />
+
+          <label for="drug_restrictions">Drug Restrictions</label>
+          <input type="text" id="drug_restrictions" name="drug_restrictions" />
+
+          <label for="maximum_prescription">Maximum Prescription</label>
+          <input
+            type="text"
+            id="maximum_prescription"
+            name="maximum_prescription"
+          />
+
+          <div class="buttons">
+            <button type="submit" class="btn-simpan">Simpan</button>
+            <button type="button" class="btn-batal">Batal</button>
+          </div>
+        </form>
       </div>
-    </section>
-    
-    
-  </main>
+    </main>
 
-  <footer>
-    <p>Calon Dokter Muda <a href="http://www.kalbe.co.id" target="_blank" rel="noreferrer">IDProgramer</a></p>
-  </footer>
+    <footer>
+      <p>
+        Calon Dokter Muda
+        <a href="http://www.kalbe.co.id" target="_blank" rel="noreferrer"
+          >IDProgramer</a
+        >
+      </p>
+    </footer>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </body>
 </html>
