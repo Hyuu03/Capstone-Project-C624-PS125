@@ -163,7 +163,15 @@ document.addEventListener('DOMContentLoaded', async () => {
           loginLink.style.background = 'none';
           loginForm.style.display = 'none';
           // Buat elemen <li> baru
-          const eduListItem = document.createElement('li');
+          const liKelola = document.createElement('li');
+          const liLogout = document.createElement('li');
+          
+          // Buat element href
+          const kelolaObat = document.createElement('a');
+          kelolaObat.setAttribute('href','#/kelola');
+          kelolaObat.textContent = 'Kelola Obat';
+          liKelola.appendChild(kelolaObat);
+          app_drawer.appendChild(liKelola);
 
           // Buat elemen <button> baru
           const logoutButton = document.createElement('button');
@@ -189,10 +197,10 @@ document.addEventListener('DOMContentLoaded', async () => {
           });
 
           // Masukkan elemen <button> ke dalam elemen <li>
-          eduListItem.appendChild(logoutButton);
+          liLogout.appendChild(logoutButton);
 
           // Masukkan elemen <li> ke dalam .app-bar__navigation
-          app_drawer.appendChild(eduListItem);
+          app_drawer.appendChild(liLogout);
 
 
         }

@@ -1,6 +1,8 @@
 import TheHealthcareSourceMedicine from "./data/healthcaredb-source-medicine";
 
 document.addEventListener('DOMContentLoaded', async () => {
+
+    // menampilkan semua data obat
     const drugGrid = document.querySelector('.drug-grid');
 
     try {
@@ -23,4 +25,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         drugGrid.innerHTML = '<p>Terjadi kesalahan saat mengambil data obat.</p>';
     }
+
+    // // handle form
+    // const sections = {
+    //     Edukasi: document.querySelector('.table-container')
+    // };
+    // const hideAllSectionsExcept = (exceptSection) => {
+    //     Object.entries(sections).forEach(([key, section]) => {
+    //       if (key !== exceptSection && section) {
+    //         section.style.display = 'none';
+    //       }
+    //     });
+    //   };
+    
+    //   // Initialize the default view
+    // hideAllSectionsExcept('.table-container'); // Only show Edukasi section initially
+
 });
