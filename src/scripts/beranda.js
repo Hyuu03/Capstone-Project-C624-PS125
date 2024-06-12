@@ -1,24 +1,27 @@
+// Menambahkan event listener yang akan dijalankan ketika DOM selesai dimuat
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = {
-      Beranda: document.getElementById('Beranda')
-    };
-  
-    const showSection = (sectionId) => {
-      const section = sections[sectionId];
-      if (section) {
-        section.style.display = 'block';
+  // Mendefinisikan objek 'sections' yang berisi elemen DOM dengan id 'Beranda'
+  const sections = {
+    Beranda: document.getElementById('Beranda')
+  };
+
+  // Fungsi untuk menampilkan section tertentu berdasarkan id
+  const showSection = (sectionId) => {
+    const section = sections[sectionId];
+    if (section) {
+      section.style.display = 'block';
+    }
+  };
+
+  // Fungsi untuk menyembunyikan semua section kecuali yang ditentukan
+  const hideAllSectionsExcept = (exceptSection) => {
+    Object.entries(sections).forEach(([key, section]) => {
+      if (key !== exceptSection && section) {
+        section.style.display = 'none';
       }
-    };
-  
-    const hideAllSectionsExcept = (exceptSection) => {
-      Object.entries(sections).forEach(([key, section]) => {
-        if (key !== exceptSection && section) {
-          section.style.display = 'none';
-        }
-      });
-    };
-  
-    // Initialize the default view
-    hideAllSectionsExcept('Beranda'); // Only show Beranda section initially
-  });
-  
+    });
+  };
+
+  // Inisialisasi tampilan default
+  hideAllSectionsExcept('Beranda'); // Hanya menampilkan section 'Beranda' pada awalnya
+});
