@@ -1,6 +1,9 @@
 import CONFIG from "../globals/config";
 
-class TheHealthcareSourceMedicine{
+// Kelas untuk mengelola operasi CRUD terhadap data obat dari sumber Healthcare
+
+class TheHealthcareSourceMedicine {
+    // Metode untuk membuat entri obat baru
     static async createMedicine(medicineData, accessToken) {
         try {
             const response = await fetch(`${CONFIG.BASE_URL}/medicines`, {
@@ -21,10 +24,12 @@ class TheHealthcareSourceMedicine{
             return responseJson;
         } catch (error) {
             console.error(error);
-            // Handle the error appropriately, e.g., display an error message to the user
+            // Tangani kesalahan dengan tepat, misalnya dengan menampilkan pesan kesalahan kepada pengguna
             return null;
         }
     }
+
+    // Metode untuk mendapatkan daftar obat dengan opsi pencarian dan penyesuaian halaman
     static async getMedicines(params = {}) {
         try {
             const { limit = 10, page = 1, search = '' } = params;
@@ -52,10 +57,12 @@ class TheHealthcareSourceMedicine{
             return responseJson;
         } catch (error) {
             console.error(error);
-            // Handle the error appropriately, e.g., display an error message to the user
+            // Tangani kesalahan dengan tepat, misalnya dengan menampilkan pesan kesalahan kepada pengguna
             return null;
         }
     }
+
+    // Metode untuk mendapatkan daftar obat oleh dokter dengan opsi pencarian dan penyesuaian halaman
     static async getMedicinesDoctor(params = {}) {
         try {
             const { limit = 10, page = 1, search = '' } = params;
@@ -83,10 +90,12 @@ class TheHealthcareSourceMedicine{
             return responseJson;
         } catch (error) {
             console.error(error);
-            // Handle the error appropriately, e.g., display an error message to the user
+            // Tangani kesalahan dengan tepat, misalnya dengan menampilkan pesan kesalahan kepada pengguna
             return null;
         }
     }
+
+    // Metode untuk mendapatkan detail obat berdasarkan ID
     static async getDetailMedicineById(medicineId) {
         try {
             const response = await fetch(`${CONFIG.BASE_URL}/medicines/${medicineId}`, {
@@ -112,6 +121,8 @@ class TheHealthcareSourceMedicine{
             return null;
         }
     }
+
+    // Metode untuk memperbarui data obat yang ada
     static async updateMedicine(medicineId, medicineData, accessToken) {
         try {
             const response = await fetch(`${CONFIG.BASE_URL}/medicines/${medicineId}`, {
@@ -132,10 +143,12 @@ class TheHealthcareSourceMedicine{
             return responseJson;
         } catch (error) {
             console.error(error);
-            // Handle the error appropriately, e.g., display an error message to the user
+            // Tangani kesalahan dengan tepat, misalnya dengan menampilkan pesan kesalahan kepada pengguna
             return null;
         }
     }
+
+    // Metode untuk menghapus entri obat berdasarkan ID
     static async deleteMedicineById(medicineId, accessToken) {
         try {
             const response = await fetch(`${CONFIG.BASE_URL}/medicines/${medicineId}`, {
@@ -155,7 +168,7 @@ class TheHealthcareSourceMedicine{
             return responseJson;
         } catch (error) {
             console.error(error);
-            // Handle the error appropriately, e.g., display an error message to the user
+            // Tangani kesalahan dengan tepat, misalnya dengan menampilkan pesan kesalahan kepada pengguna
             return null;
         }
     }
