@@ -1,8 +1,10 @@
 import TheHealthcareSourceUser from "./data/healthcaredb-source-user";
+import { renderDashboard } from "./kelola-obat";
 
 // Event listener untuk memastikan DOM sudah sepenuhnya dimuat sebelum menjalankan script
 document.addEventListener('DOMContentLoaded', async () => {
   const app_drawer = document.querySelector('.nav-ul');
+  const obatContainer = document.querySelector('#kelolaObat')
   console.log('DOM fully loaded and parsed');
 
   // Objek yang berisi referensi ke formulir login dan signup
@@ -204,6 +206,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
         }
+        obatContainer.appendChild(renderDashboard());
+        ;
       } else {
         console.log('Pengguna perlu login kembali');
         loginForm.style.display = 'block';
