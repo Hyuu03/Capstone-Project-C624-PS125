@@ -65,7 +65,7 @@ class TheHealthcareSourceMedicine {
     // Metode untuk mendapatkan daftar obat oleh dokter dengan opsi pencarian dan penyesuaian halaman
     static async getMedicinesDoctor(params = {},accessToken) {
         try {
-            const { limit = 10, page = 1, search = '' } = params;
+            const { limit = 20, page = 1, search = '' } = params;
 
             const url = new URL(`${CONFIG.BASE_URL}/medicinesdoctor`);
             url.searchParams.append('limit', limit);
@@ -102,8 +102,6 @@ class TheHealthcareSourceMedicine {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Tambahkan token akses jika diperlukan
-                    // 'Authorization': `Bearer ${accessToken}`,
                 },
             });
 
