@@ -63,7 +63,7 @@ class TheHealthcareSourceMedicine {
     }
 
     // Metode untuk mendapatkan daftar obat oleh dokter dengan opsi pencarian dan penyesuaian halaman
-    static async getMedicinesDoctor(params = {}) {
+    static async getMedicinesDoctor(params = {},accessToken) {
         try {
             const { limit = 10, page = 1, search = '' } = params;
 

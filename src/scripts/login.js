@@ -1,8 +1,10 @@
 import TheHealthcareSourceUser from "./data/healthcaredb-source-user";
-import { renderDashboard } from "./kelola-obat";
+import { renderDashboard, showDashboard, showTambahObatForm } from "./kelola-obat";
+import TheHealthcareSourceMedicine from "./data/healthcaredb-source-medicine";
 
 // Event listener untuk memastikan DOM sudah sepenuhnya dimuat sebelum menjalankan script
 document.addEventListener('DOMContentLoaded', async () => {
+  const accessToken = localStorage.getItem('accessToken');
   const app_drawer = document.querySelector('.nav-ul');
   const obatContainer = document.querySelector('#Kelolaobat')
   const navObat = document.querySelector('.kelola');
@@ -200,9 +202,13 @@ document.addEventListener('DOMContentLoaded', async () => {
           // Masukkan elemen <li> ke dalam .app-bar__navigation
           app_drawer.appendChild(liLogout);
 
+          //get data untuk kelola obat
+          
+          // renderDashboard(medicines.medicines);
+          showDashboard();
 
         }
-        obatContainer.appendChild(renderDashboard());
+        // obatContainer.appendChild(renderDashboard());
         ;
       } else {
         console.log('Pengguna perlu login kembali');
