@@ -4,7 +4,8 @@ import { renderDashboard } from "./kelola-obat";
 // Event listener untuk memastikan DOM sudah sepenuhnya dimuat sebelum menjalankan script
 document.addEventListener('DOMContentLoaded', async () => {
   const app_drawer = document.querySelector('.nav-ul');
-  const obatContainer = document.querySelector('#kelolaObat')
+  const obatContainer = document.querySelector('#Kelolaobat')
+  const navObat = document.querySelector('.kelola');
   console.log('DOM fully loaded and parsed');
 
   // Objek yang berisi referensi ke formulir login dan signup
@@ -165,15 +166,10 @@ document.addEventListener('DOMContentLoaded', async () => {
           loginLink.style.background = 'none';
           loginForm.style.display = 'none';
           // Buat elemen <li> baru
-          const liKelola = document.createElement('li');
           const liLogout = document.createElement('li');
           
-          // Buat element href
-          const kelolaObat = document.createElement('a');
-          kelolaObat.setAttribute('href','#/kelola');
-          kelolaObat.textContent = 'Kelola Obat';
-          liKelola.appendChild(kelolaObat);
-          app_drawer.appendChild(liKelola);
+
+          navObat.style.display = 'block';
 
           // Buat elemen <button> baru
           const logoutButton = document.createElement('button');
@@ -211,6 +207,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       } else {
         console.log('Pengguna perlu login kembali');
         loginForm.style.display = 'block';
+        navObat.style.display = 'none';
         
         showForm('Login');
       }
