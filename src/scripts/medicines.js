@@ -26,19 +26,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         drugGrid.innerHTML = '<p>Terjadi kesalahan saat mengambil data obat.</p>';
     }
 
-    // // handle form
-    // const sections = {
-    //     Edukasi: document.querySelector('.table-container')
-    // };
-    // const hideAllSectionsExcept = (exceptSection) => {
-    //     Object.entries(sections).forEach(([key, section]) => {
-    //       if (key !== exceptSection && section) {
-    //         section.style.display = 'none';
-    //       }
-    //     });
-    //   };
-    
-    //   // Initialize the default view
-    // hideAllSectionsExcept('.table-container'); // Only show Edukasi section initially
-
 });

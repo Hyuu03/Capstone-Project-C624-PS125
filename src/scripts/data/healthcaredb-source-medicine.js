@@ -102,8 +102,6 @@ class TheHealthcareSourceMedicine {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Tambahkan token akses jika diperlukan
-                    // 'Authorization': `Bearer ${accessToken}`,
                 },
             });
 
