@@ -1,192 +1,157 @@
 @media screen and (min-width: 650px) {
-    .app-bar {
-      grid-template-columns: 1fr auto;
-      padding: 8px 32px;
-    }
-   
-    .app-bar .app-bar__brand h1 {
-      font-size: 1.5em;
-    }
-   
-    .app-bar .app-bar__menu {
-      display: none;
-    }
-   
-    .app-bar .app-bar__navigation {
-      position: static;
-      width: 100%;
-    }
-   
-    .app-bar .app-bar__navigation ul li {
-      display: inline-block;
-    }
-   
-    .app-bar .app-bar__navigation ul li a {
-      display: inline-block;
-      /* width: 120px; */
-      text-align: center;
-      margin: 0;
-    }
-   
-    .movies {
-      grid-template-columns: 1fr 1fr;
-    }
-   
-    .movie {
-      grid-template-columns: auto 1fr;
-    }
-   
-    .movie .movie__title {
-      grid-column-start: 1;
-      grid-column-end: 3;
-    }
-   
-    .movie .movie__overview {
-      grid-column-start: 1;
-      grid-column-end: 3;
-    }
-  }
-   
-  @media screen and (min-width: 800px) {
-    .app-bar .app-bar__brand h1 {
-      font-size: 2em;
-    }
-  }
-   
-  @media screen and (min-width: 850px) {
-    .movies {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-   
-  @media screen and (min-width: 1200px) {
-    .movies {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-   
-  @media screen and (min-width: 1600px) {
-    .movies {
-        grid-template-columns: repeat(5, 1fr);
-    }
+  .app-bar {
+    grid-template-columns: 1fr auto;
+    padding: 8px 32px;
   }
 
-  @media screen and (max-width: 991px) {
-    .TampilAwal {
-      max-width: 700px;
-    }
-  
-    .TampilAwal h1 {
-      font-size: 36px;
-    }
-  
-    .TampilAwal p {
-      font-size: 18px;
-    }
-  
-    .groupObat {
-      grid-template-columns: repeat(3, minmax(150px, 1fr));
-    }
-  
-    .groupEdukasi {
-      grid-template-columns: repeat(3, minmax(200px, 1fr));
-    }
-  
-    .edukasi a {
-      padding-left: 70%;
-    }
-  
-    .containerText {
-      margin: 0 25%;
-    }
+  .app-bar .app-bar__brand h1 {
+    font-size: 1em;
   }
-  
-  @media screen and (max-width: 768px) {
-    .TampilAwal {
-      max-width: 600px;
-    }
-  
-    .TampilAwal h1 {
-      font-size: 34px;
-    }
-  
-    .TampilAwal p {
-      font-size: 16px;
-    }
-  
-    .groupEdukasi {
-      grid-template-columns: repeat(2, minmax(200px, 1fr));
-    }
-  
-    .edukasi a {
-      padding-left: 60%;
-    }
+
+  .app-bar .app-bar__menu {
+    display: none;
   }
-  
-  @media screen and (max-width: 617px) {
-    .TampilAwal {
-      max-width: 500px;
-    }
-  
-    .TampilAwal h1 {
-      font-size: 30px;
-    }
-  
-    .TampilAwal p {
-      font-size: 14px;
-    }
-  
-    .groupObat {
-      grid-template-columns: repeat(2, minmax(150px, 1fr));
-    }
-  
-    .groupEdukasi {
-      grid-template-columns: repeat(1, minmax(200px, 1fr));
-    }
-  
-    .edukasi a {
-      padding-left: 50%;
-    }
-  
-    .containerText {
-      margin: 0 10%;
-    }
+
+  .app-bar .app-bar__navigation {
+    position: static;
+    width: 100%;
   }
-  
-  @media screen and (max-width: 520px) {
-    .TampilAwal {
-      max-width: 400px;
-    }
-  
-    .TampilAwal h1 {
-      font-size: 28px;
-    }
-  
-    .TampilAwal p {
-      font-size: 12px;
-    }
-  
-    .edukasi a {
-      padding-left: 40%;
-    }
+
+  .app-bar .app-bar__navigation ul li {
+    display: inline-block;
   }
-  
-  @media screen and (max-width: 462px) {
-    .edukasi a {
-      padding-left: 30%;
-    }
+
+  .app-bar .app-bar__navigation ul li a {
+    display: inline-block;
+    /* width: 120px; */
+    text-align: center;
+    margin: 0;
+    /* font-size: 18px; */
   }
-  
-  @media screen and (max-width: 371px) {
-    .TampilAwal {
-      max-width: 335px;
-    }
-  
-    .TampilAwal h1 {
-      font-size: 20px;
-    }
-  
-    .TampilAwal p {
-      font-size: 10px;
-    }
+}
+
+@media screen and (min-width: 800px) {
+  .app-bar .app-bar__brand h1 {
+    font-size: 1em;
   }
+}
+
+@media screen and (max-width: 991px) {
+  .TampilAwal {
+    max-width: 700px;
+  }
+
+  .TampilAwal h1 {
+    font-size: 36px;
+  }
+
+  .TampilAwal p {
+    font-size: 18px;
+  }
+
+  .groupObat {
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+  }
+
+  .groupEdukasi {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+  }
+
+  .edukasi .judul a {
+    padding-left: 70%;
+  }
+
+  .containerText {
+    margin: 0 25%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .TampilAwal {
+    max-width: 600px;
+  }
+
+  .TampilAwal h1 {
+    font-size: 34px;
+  }
+
+  .TampilAwal p {
+    font-size: 16px;
+  }
+
+  .groupEdukasi {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+
+  .edukasi .judul a {
+    padding-left: 60%;
+  }
+}
+
+@media screen and (max-width: 617px) {
+  .TampilAwal {
+    max-width: 500px;
+  }
+
+  .TampilAwal h1 {
+    font-size: 30px;
+  }
+
+  .TampilAwal p {
+    font-size: 14px;
+  }
+
+  .groupObat {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+  }
+
+  .groupEdukasi {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+
+  .edukasi .judul a {
+    padding-left: 50%;
+  }
+
+  .containerText {
+    margin: 0 10%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .TampilAwal {
+    max-width: 400px;
+  }
+
+  .TampilAwal h1 {
+    font-size: 28px;
+  }
+
+  .TampilAwal p {
+    font-size: 12px;
+  }
+
+  .edukasi .judul a {
+    padding-left: 40%;
+  }
+}
+
+@media screen and (max-width: 462px) {
+  .edukasi .judul a {
+    padding-left: 30%;
+  }
+}
+
+@media screen and (max-width: 371px) {
+  .TampilAwal {
+    max-width: 335px;
+  }
+
+  .TampilAwal h1 {
+    font-size: 20px;
+  }
+
+  .TampilAwal p {
+    font-size: 10px;
+  }
+}

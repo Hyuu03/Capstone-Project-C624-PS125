@@ -1,7 +1,4 @@
-/* * {
-  padding: 0;
-  margin: 0;
-} */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 * {
   margin: 0;
@@ -21,109 +18,92 @@
   --text-color-2: #2d511d;
 }
 
-body {
+/* body {
   font-family: "Poppins", sans-serif;
   background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Ensuring the content is centered vertically */
-  align-items: center; /* Ensuring the content is centered horizontally */
-}
-
-/* Navbar */
-.navbar {
-  background-color: #fff;
-  padding: 30px;
-  display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 100%; /* Ensuring the navbar takes full width */
+} */
+
+body,
+html {
+  width: 100%;
+  height: 100%;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
+.app-bar {
+  padding: 1rem 5%;
+  background-color: var(--bg-color);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
+  width: 100%;
 }
 
-.nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.app-bar .app-bar__menu {
   display: flex;
+  align-items: center;
 }
 
-.nav-links li {
-  margin-right: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #333;
-}
-
-.login-btn {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
+.app-bar .app-bar__menu button {
+  background-color: transparent;
+  color: white;
   border: none;
+  font-size: 18px;
+  padding: 8px;
   cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
 }
 
-.login-form {
-  background-color: #fff;
-  padding: 20px;
-  width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  margin-top: 20px; /* Removed because it is not necessary */
+.app-bar .app-bar__brand {
+  display: flex;
+  align-items: center;
 }
 
-.login-form h2 {
-  margin-bottom: 20px;
-  text-align: center;
+.app-bar .app-bar__brand h1 {
+  color: white;
+  text-transform: uppercase;
+  font-size: 1em;
+  user-select: none;
 }
 
-.form-group {
-  margin-bottom: 10px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-.form-group input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-}
-
-.login-btn {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-.login-form a {
-  text-decoration: none;
-}
-
-/* icon web di bagian kiri atas */
 .app-bar__brand img {
-  height: 60px; /* mengatur tinggi gambar favicon */
-
-  width: auto; /* membiarkan lebar disesuaikan secara otomatis */
+  height: 60px;
+  width: auto;
   border-radius: 70%;
+}
+
+.app-bar .app-bar__navigation {
+  position: absolute;
+  top: 90px;
+  left: -100%;
+  width: 100%;
+  transition: all 0.3s;
+  padding: 8px;
+  /* background-color: #333; */
+  overflow: hidden;
+}
+
+.app-bar .app-bar__navigation.open {
+  left: 0;
+  background-color: var(--bg-color);
+}
+
+.app-bar .app-bar__navigation ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  padding: 8px;
+  margin-bottom: 5px;
+  width: 100%;
 }
 
 /* Beranda */
@@ -230,7 +210,8 @@ body {
 .edukasi {
   background: linear-gradient(180deg, #2d511d -55.82%, #65b741 100%);
 }
-.judul {
+
+.edukasi .judul {
   display: flex;
   padding-bottom: 50px;
 }
@@ -239,7 +220,7 @@ body {
   color: var(--text-color);
 }
 
-.edukasi a {
+.edukasi .judul a {
   padding-left: 80%;
   text-align: center;
   text-decoration: none;
@@ -254,7 +235,7 @@ body {
 }
 
 .VideoEdukasi {
-  height: 20em;
+  /* height: 20em; */
   background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
@@ -387,20 +368,6 @@ body {
 }
 
 /* menu edukasi*/
-/* styles.css */
-
-/* Reset CSS */
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0; /* Ganti dengan warna latar belakang yang diinginkan */
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -441,71 +408,9 @@ h2 {
   color: #666;
 }
 
-.pagination {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.pagination a {
-  display: inline-block;
-  padding: 5px 10px;
-  margin: 0 5px;
-  color: #333;
-  text-decoration: none;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.pagination a.current {
-  background-color: #333;
-  color: #fff;
-  border-color: #333;
-}
-
-.hidden {
-  display: none;
-}
-
-/* sign up*/
-body {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.app-bar {
-  background-color: #333;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-}
-
-.app-bar__menu button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-}
-
-.app-bar__brand h1 {
-  margin: 0;
-}
-
-.app-bar__navigation ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.app-bar__navigation li {
-  margin-right: 1rem;
-}
-
-.app-bar__navigation a {
-  /* color: white; */
-  text-decoration: none;
+/* Login */
+.login-container {
+  height: 542px;
 }
 
 .login-form,
@@ -552,179 +457,6 @@ body {
 .login-btn:hover,
 .signup-btn:hover {
   background-color: #0056b3;
-}
-
-/* footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #333;
-  color: white;
-} */
-
-/* AppBar */
-.app-bar {
-  padding: 8px 16px;
-  background-color: var(--bg-color);
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 10px;
-  position: sticky;
-  top: 0;
-  z-index: 99;
-  /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
-  width: 100%; /* Ensuring the app-bar takes full width */
-}
-
-.app-bar__brand {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.app-bar__brand h1 {
-  color: var(--text-color-2);
-  text-transform: uppercase;
-  font-size: 22px;
-  user-select: none;
-}
-
-.app-bar__menu {
-  display: flex;
-  align-items: center;
-}
-
-.app-bar__menu button {
-  background-color: transparent;
-  border: none;
-  font-size: 18px;
-  padding: 8px;
-  cursor: pointer;
-}
-
-.app-bar__navigation {
-  position: absolute;
-  top: 50px;
-  left: -100%;
-  width: 100%;
-  transition: all 0.3s;
-  padding: 8px;
-  background-color: var(--bg-color);
-  overflow: hidden;
-}
-
-.app-bar__navigation.open {
-  left: 0;
-}
-
-.app-bar__navigation ul li a {
-  display: inline-block;
-  text-decoration: none;
-  color: var(--text-color);
-  padding: 8px;
-  margin-bottom: 5px;
-  width: 100%;
-  font-size: 16px;
-}
-
-.app-bar__navigation ul li a.active {
-  /* background-color: #db0000; */
-  color: var(--text-color-2);
-  font-weight: bolder;
-}
-
-/* Main Content */
-main {
-  /* padding: 32px; */
-  flex: 1;
-  width: 100%; /* Ensuring main takes full width */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Ensuring the form is centered vertically within the main container */
-  align-items: center; /* Ensuring the form is centered horizontally within the main container */
-}
-
-.content {
-  margin: 0 auto;
-  min-height: 100%;
-}
-
-.content__heading {
-  font-weight: normal;
-}
-
-/* Footer */
-/* footer {
-  padding: 16px;
-  width: 100%;
-} */
-
-footer {
-  background-color: var(--bg-color-2);
-  color: var(--text-color-2);
-  font-size: 14px;
-  font-weight: bold;
-  padding: 2em;
-  width: 100%;
-  text-align: center;
-}
-
-footer p {
-  padding-top: 10px;
-  text-align: center;
-  color: var(--text-color-2);
-}
-
-footer p a {
-  color: #db0000;
-  text-decoration: none;
-}
-
-/* Page Title */
-.page-title {
-  margin-top: 0;
-  padding: 20px;
-  border: 1px solid #ccc;
-}
-
-/* Tambahkan ini ke file CSS Anda */
-.logout-button {
-  background-color: #4caf50; /* Warna latar belakang hijau */
-  border: none; /* Hapus border default */
-  color: white; /* Warna teks putih */
-  padding: 10px 20px; /* Padding di sekitar teks */
-  text-align: center; /* Teks ditengah */
-  text-decoration: none; /* Hapus garis bawah */
-  display: inline-block; /* Inline-block agar bisa memiliki lebar dan tinggi */
-  font-size: 16px; /* Ukuran font */
-  margin: 4px 2px; /* Margin kecil */
-  cursor: pointer; /* Ganti cursor menjadi pointer */
-  border-radius: 8px; /* Sudut melengkung */
-  transition: background-color 0.3s ease; /* Transisi halus saat hover */
-}
-
-.logout-button:hover {
-  background-color: #45a049; /* Warna latar belakang saat hover */
-}
-
-.drug-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.medicine-item {
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #fff;
-}
-
-.medicine-item h3 {
-  margin-top: 0;
-}
-
-.medicine-item p {
-  margin: 0;
 }
 
 /* Dashboard */
@@ -838,21 +570,21 @@ table td {
 .containerEdit,
 .containerTambah {
   max-width: 800px;
-  margin: auto;
+  margin: 2rem auto;
   background-color: var(--bg-color-2);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-form label {
+.form-container label {
   display: block;
   margin: 10px 0 5px;
   font-weight: bold;
 }
 
-form input,
-form select {
+.form-container input,
+.form-container select {
   width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 10px;
@@ -883,4 +615,25 @@ form select {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+footer {
+  background-color: var(--bg-color);
+  color: var(--text-color-2);
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2em;
+  width: 100%;
+  text-align: center;
+}
+
+footer p {
+  padding-top: 10px;
+  text-align: center;
+  color: var(--text-color-2);
+}
+
+footer p a {
+  color: #db0000;
+  text-decoration: none;
 }
