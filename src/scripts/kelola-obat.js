@@ -176,10 +176,10 @@ export const renderTambahObat = () => {
       <h2>Tambah Obat</h2>
       <form id="tambah-obat-form">
         <label for="nama-obat">Nama Obat</label>
-        <input type="text" id="nama-obat" name="nama-obat" />
+        <input type="text" id="nama-obat" name="nama-obat" required />
   
         <label for="class_therapy">Class Therapy</label>
-        <input type="text" id="class_therapy" name="class_therapy" />
+        <input type="text" id="class_therapy" name="class_therapy" required />
   
         <label for="subclass_therapy1">Subclass Therapy 1</label>
         <input type="text" id="subclass_therapy1" name="indikasi-umum" />
@@ -191,13 +191,13 @@ export const renderTambahObat = () => {
         <input type="text" id="subclass_therapy3" name="subclass_therapy3" />
   
         <label for="power">Power</label>
-        <input type="text" id="power" name="power" />
+        <input type="text" id="power" name="power" required/>
   
         <label for="unit">Unit</label>
-        <input type="text" id="unit" name="unit" />
+        <input type="text" id="unit" name="unit" required/>
   
         <label for="type">Type</label>
-        <input type="text" id="type" name="type" />
+        <input type="text" id="type" name="type" required/>
   
         <label for="composition">Composition</label>
         <input type="text" id="composition" name="composition" />
@@ -306,10 +306,10 @@ export const showDashboard = async (params = {}) => {
       <h2>Edit Obat</h2>
       <form id="edit-obat-form">
         <label for="nama-obat">Nama Obat</label>
-        <input type="text" id="nama-obat" name="nama-obat" value="${medicine.name}" />
+        <input type="text" id="nama-obat" name="nama-obat" value="${medicine.name}" required/>
   
         <label for="class_therapy">Class Therapy</label>
-        <input type="text" id="class_therapy" name="class_therapy" value="${medicine.class_therapy}" />
+        <input type="text" id="class_therapy" name="class_therapy" value="${medicine.class_therapy}" required/>
   
         <label for="subclass_therapy1">Subclass Therapy 1</label>
         <input type="text" id="subclass_therapy1" name="subclass_therapy1" value="${medicine.subclass_therapy1}" />
@@ -321,13 +321,13 @@ export const showDashboard = async (params = {}) => {
         <input type="text" id="subclass_therapy3" name="subclass_therapy3" value="${medicine.subclass_therapy3}" />
   
         <label for="power">Power</label>
-        <input type="text" id="power" name="power" value="${medicine.power}" />
+        <input type="text" id="power" name="power" value="${medicine.power}" required/>
   
         <label for="unit">Unit</label>
-        <input type="text" id="unit" name="unit" value="${medicine.unit}" />
+        <input type="text" id="unit" name="unit" value="${medicine.unit}" required/>
   
         <label for="type">Type</label>
-        <input type="text" id="type" name="type" value="${medicine.type}" />
+        <input type="text" id="type" name="type" value="${medicine.type}" required/>
   
         <label for="composition">Composition</label>
         <input type="text" id="composition" name="composition" value="${medicine.composition}" />
