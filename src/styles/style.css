@@ -885,3 +885,62 @@ form select {
   cursor: pointer;
 }
 
+/* styles.css (atau file terpisah untuk CSS) */
+
+/* Container untuk loading indicator */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* Menggunakan 80% tinggi viewport untuk kontainer loading */
+}
+
+/* Animasi spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #3aafa9;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Text loading */
+.loading-container p {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #666;
+  text-align: center;
+}
+
+/* Pop Up */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.popup.success {
+  background-color: #28a745; /* Bootstrap success color */
+}
+
+.popup.error {
+  background-color: #dc3545; /* Bootstrap danger color */
+}
+
+.popup.show {
+  opacity: 1;
+}

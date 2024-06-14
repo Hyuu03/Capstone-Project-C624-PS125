@@ -1,9 +1,10 @@
 import CONFIG from "../globals/config";
+import { showErrorMessage } from "../utils/popup";
 
 class TheHealthcareSourceUser {
     static async register(name, email, password, confPassword) {
         if (password !== confPassword) { // Periksa apakah password dan konfirmasi password sama
-            return alert("Password dan Konfirmasi Password tidak sama");
+            return showErrorMessage("Password dan Konfirmasi Password tidak sama");
         }
 
         try {
@@ -28,7 +29,7 @@ class TheHealthcareSourceUser {
 
             return responseJson;
         } catch (error) {
-            alert(error.message); // Tangani kesalahan dengan menampilkan pesan kesalahan
+            showErrorMessage(error.message); // Tangani kesalahan dengan menampilkan pesan kesalahan
             return null;
         }
     }
@@ -56,7 +57,7 @@ class TheHealthcareSourceUser {
 
             return responseJson;
         } catch (error) {
-            alert(error.message); // Tangani kesalahan dengan menampilkan pesan kesalahan
+            showErrorMessage(error.message); // Tangani kesalahan dengan menampilkan pesan kesalahan
             return null;
         }
     }
@@ -115,7 +116,7 @@ class TheHealthcareSourceUser {
 
             return responseJson;
         } catch (error) {
-            // alert(error.message);
+            // showErrorMessage(error.message);
             return null;
         }
     }

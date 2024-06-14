@@ -1,6 +1,6 @@
 import TheHealthcareSourceUser from "./data/healthcaredb-source-user";
-import { renderDashboard, showDashboard, showTambahObatForm } from "./kelola-obat";
-import TheHealthcareSourceMedicine from "./data/healthcaredb-source-medicine";
+import { showDashboard, } from "./kelola-obat";
+import { showSuccessMessage, showErrorMessage } from "./utils/popup";
 
 // Event listener untuk memastikan DOM sudah sepenuhnya dimuat sebelum menjalankan script
 document.addEventListener('DOMContentLoaded', async () => {
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       // Validasi password dan konfirmasi password harus sama
       if (password !== confirmPassword) {
-        alert('Password dan Konfirmasi Password tidak cocok.');
+        showErrorMessage('Password dan Konfirmasi Password tidak cocok.');
         return;
       }
 
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Menjalankan registrasi dengan menggunakan objek TheHealthcareSourceUser
         const response = await TheHealthcareSourceUser.register(name, email, password, confirmPassword);
         if (response) {
-          // alert('Registrasi berhasil!');
+          showSuccessMessage('Registrasi berhasil!');
           showForm('Login');
         }
         
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
       } catch (error) {
         console.error('Registrasi gagal:', error.message);
-        alert('Registrasi gagal: ' + error.message);
+        showErrorMessage('Registrasi gagal: ' + error.message);
       }
     });
   }
@@ -113,48 +113,11 @@ document.addEventListener('DOMContentLoaded', async () => {
           loginLink.style.display = 'none';
           window.location.reload();
         }
-      } else {
-        alert('Email atau password salah');
       }
     });
   }
 
-  // Menambahkan event listener untuk tombol submit registrasi
-  const submitRegistrationButton = document.getElementById('submit-registration');
-  if (submitRegistrationButton) {
-    submitRegistrationButton.addEventListener('click', function(event) {
-      event.preventDefault();
-      console.log('Tombol submit registrasi diklik');
-      // Memicu event submit pada formulir registrasi
-      registrationForm.dispatchEvent(new Event('submit'));
-    });
-  }
 
-  // Menambahkan event listener untuk tombol submit login
-  const submitLoginButton = document.getElementById('submit-login');
-  if (submitLoginButton) {
-    submitLoginButton.addEventListener('click', async function(event) {
-      event.preventDefault();
-      console.log('Tombol submit login diklik');
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      
-      if (email && password) {
-        // Memeriksa kecocokan email dan password yang dimasukkan dengan yang terdaftar
-        const registeredEmail = localStorage.getItem('registeredEmail');
-        const registeredPassword = localStorage.getItem('registeredPassword');
-
-        if (email === registeredEmail && password === registeredPassword) {
-          alert('Sign in berhasil!');
-        } else {
-          alert('Email atau password salah');
-        }
-      } else {
-        alert('Email dan password harus diisi');
-      }
-    });
-  }
       // Periksa apakah token akses masih valid
       const user = await TheHealthcareSourceUser.getUser();
       if (user) {

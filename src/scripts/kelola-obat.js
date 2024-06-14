@@ -1,4 +1,6 @@
 import TheHealthcareSourceMedicine from "./data/healthcaredb-source-medicine";
+import { showSuccessMessage, showErrorMessage } from "./utils/popup";
+import renderLoading from "./utils/renderLoading";
 
 // Komponen Daftar Obat (Dashboard)
 
@@ -127,7 +129,7 @@ async function handleSearch(inputElement) {
     await showDashboard(params);
   } catch (error) {
     console.error('Pencarian gagal:', error);
-    alert('Terjadi kesalahan saat mencari data obat. Silakan coba lagi.');
+    showErrorMessage('Terjadi kesalahan saat mencari data obat. Silakan coba lagi.')
   }
 }
 
@@ -149,10 +151,10 @@ dashboardContainer.querySelectorAll('.delete-btn').forEach(button => {
     if (confirmed) {
       const response = await TheHealthcareSourceMedicine.deleteMedicineById(medicineId, accessToken);
       if (response) {
-        alert('Obat berhasil dihapus');
         showDashboard();
+        showSuccessMessage('Obat berhasil dihapus');
       } else {
-        alert('Gagal menghapus obat');
+        showErrorMessage('Gagal menghapus obat');
       }
     }
   });
@@ -249,10 +251,10 @@ export const renderTambahObat = () => {
       // Tambahkan logika untuk mengirim data ke server
       const response = await TheHealthcareSourceMedicine.createMedicine(medicineData, accessToken);
       if (response) {
-        alert('Obat berhasil ditambahkan');
         showDashboard();
+        showSuccessMessage('Obat berhasil ditambahkan');
       } else {
-        alert('Gagal menambahkan obat');
+        showErrorMessage('Gagal menambahkan obat');
       }
     });
   
@@ -273,16 +275,24 @@ export const showEditObatForm = (medicine) => {
   kelolaObatSection.appendChild(renderEditObat(medicine));
 };
 
-// Fungsi untuk menampilkan dashboard
 export const showDashboard = async (params = {}) => {
   const kelolaObatSection = document.getElementById('Kelolaobat');
   kelolaObatSection.innerHTML = '';
-  const medicines = await TheHealthcareSourceMedicine.getMedicinesDoctor(params,accessToken);
-  console.log(medicines)
-  if (!medicines) {
-    throw new Error('Gagal mengambil data obat');
+
+  // Tampilkan loading indicator sebelum memuat data
+  kelolaObatSection.appendChild(renderLoading());
+
+  try {
+    const accessToken = localStorage.getItem('accessToken');
+    const medicines = await TheHealthcareSourceMedicine.getMedicinesDoctor(params, accessToken);
+
+    kelolaObatSection.innerHTML = ''; // Bersihkan loading indicator setelah data selesai dimuat
+    kelolaObatSection.appendChild(renderDashboard(medicines.medicines));
+  } catch (error) {
+    console.error('Gagal mengambil data obat:', error);
+    kelolaObatSection.innerHTML = '<p>Gagal memuat data obat. Silakan coba lagi.</p>';
+    window.location.href = '#/Login';
   }
-  kelolaObatSection.appendChild(renderDashboard(medicines.medicines));
 };
   
   // Komponen Edit Obat
@@ -373,10 +383,10 @@ export const showDashboard = async (params = {}) => {
       // Tambahkan logika untuk mengirim data ke server
       const response = await TheHealthcareSourceMedicine.updateMedicine(medicine.id, medicineData, accessToken);
       if (response) {
-        alert('Obat berhasil diperbarui');
         showDashboard();
+        showSuccessMessage('Obat berhasil diperbarui');
       } else {
-        alert('Gagal memperbarui obat');
+        showErrorMessage('Gagal memperbarui obat');
       }
     });
   
