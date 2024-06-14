@@ -1,4 +1,5 @@
 import TheHealthcareSourceMedicine from "./data/healthcaredb-source-medicine";
+import { showConfirmationModal } from "./utils/confirmationModal";
 import { showSuccessMessage, showErrorMessage } from "./utils/popup";
 import renderLoading from "./utils/renderLoading";
 
@@ -147,7 +148,7 @@ async function handleSearch(inputElement) {
 dashboardContainer.querySelectorAll('.delete-btn').forEach(button => {
   button.addEventListener('click', async (event) => {
     const medicineId = parseInt(event.target.id);
-    const confirmed = confirm('Apakah Anda yakin ingin menghapus obat ini?');
+    const confirmed = await showConfirmationModal('Apakah Anda yakin ingin menghapus obat ini?');
     if (confirmed) {
       const response = await TheHealthcareSourceMedicine.deleteMedicineById(medicineId, accessToken);
       if (response) {
@@ -291,7 +292,7 @@ export const showDashboard = async (params = {}) => {
   } catch (error) {
     console.error('Gagal mengambil data obat:', error);
     kelolaObatSection.innerHTML = '<p>Gagal memuat data obat. Silakan coba lagi.</p>';
-    window.location.href = '#/Login';
+    window.location.reload();
   }
 };
   
