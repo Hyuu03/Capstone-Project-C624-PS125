@@ -202,13 +202,10 @@ document.addEventListener('DOMContentLoaded', async () => {
           // Masukkan elemen <li> ke dalam .app-bar__navigation
           app_drawer.appendChild(liLogout);
 
-          //get data untuk kelola obat
-          
-          // renderDashboard(medicines.medicines);
+
           showDashboard();
 
         }
-        // obatContainer.appendChild(renderDashboard());
         ;
       } else {
         console.log('Pengguna perlu login kembali');
