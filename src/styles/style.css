@@ -190,7 +190,8 @@ body {
   text-align: center;
 }
 
-.ellipse, .img {
+.ellipse,
+.img {
   width: 80px;
   height: 80px;
   top: 0;
@@ -352,7 +353,7 @@ body {
 
 .drug-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   padding: 0 50px;
 }
@@ -705,12 +706,6 @@ footer p a {
 
 .logout-button:hover {
   background-color: #45a049; /* Warna latar belakang saat hover */
-}
-
-.drug-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
 }
 
 .medicine-item {
@@ -1135,4 +1130,3 @@ form select {
 .pagination-buttons span {
   font-size: 16px;
 }
-
