@@ -187,7 +187,6 @@ export const renderTambahObat = () => {
     tambahContainer.classList.add('containerTambah');
   
     tambahContainer.innerHTML = `
-      <h1>Kelola Data Obat</h1>
       <h2>Tambah Obat</h2>
       <form id="tambah-obat-form">
         <label for="nama-obat">Nama Obat</label>
@@ -317,7 +316,6 @@ export const showDashboard = async (params = {}) => {
     editContainer.classList.add('containerEdit');
   
     editContainer.innerHTML = `
-      <h1>Kelola Data Obat</h1>
       <h2>Edit Obat</h2>
       <form id="edit-obat-form">
         <label for="nama-obat">Nama Obat</label>
