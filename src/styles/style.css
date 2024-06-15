@@ -230,7 +230,7 @@ body {
 .edukasi {
   background: linear-gradient(180deg, #2d511d -55.82%, #65b741 100%);
 }
-.judul {
+.edukasi .judul {
   display: flex;
   padding-bottom: 50px;
 }
@@ -239,7 +239,7 @@ body {
   color: var(--text-color);
 }
 
-.edukasi a {
+.edukasi .judul a {
   padding-left: 80%;
   text-align: center;
   text-decoration: none;
@@ -254,7 +254,7 @@ body {
 }
 
 .VideoEdukasi {
-  height: 20em;
+  /* height: 20em; */
   background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
@@ -365,12 +365,12 @@ body {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.pagination {
+/* .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  gap: 5px;
+  gap: 50px;
 }
 
 .pagination a {
@@ -384,7 +384,7 @@ body {
 .pagination a.active {
   background-color: #4caf50;
   color: white;
-}
+} */
 
 /* menu edukasi*/
 /* styles.css */
@@ -473,7 +473,7 @@ body {
   padding: 0;
 }
 
-.app-bar {
+/* .app-bar {
   background-color: #333;
   color: white;
   display: flex;
@@ -504,9 +504,8 @@ body {
 }
 
 .app-bar__navigation a {
-  /* color: white; */
   text-decoration: none;
-}
+} */
 
 .login-form,
 .signup-form {
@@ -586,6 +585,7 @@ body {
   text-transform: uppercase;
   font-size: 22px;
   user-select: none;
+  margin: 0;
 }
 
 .app-bar__menu {
@@ -595,6 +595,7 @@ body {
 
 .app-bar__menu button {
   background-color: transparent;
+  color: white;
   border: none;
   font-size: 18px;
   padding: 8px;
@@ -603,7 +604,7 @@ body {
 
 .app-bar__navigation {
   position: absolute;
-  top: 50px;
+  top: 70px;
   left: -100%;
   width: 100%;
   transition: all 0.3s;
@@ -717,14 +718,28 @@ footer p a {
   padding: 10px;
   border-radius: 5px;
   background-color: #fff;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+  /* max-width: 300px;
+  margin: 10px auto;
+  text-align: center; */
 }
 
 .medicine-item h3 {
   margin-top: 0;
+  color: #333;
+  font-size: 1.5em;
 }
 
 .medicine-item p {
-  margin: 0;
+  margin: 5px 0;
+  color: #666;
+}
+
+.medicine-item:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Dashboard */
@@ -907,7 +922,9 @@ form select {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Text loading */
@@ -1023,4 +1040,98 @@ form select {
 
 .modal-button:hover {
   opacity: 0.8;
+}
+
+/* popup detail obat */
+.DetailPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-color: var(--bg-color-2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.DetailPopup-content {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 5px;
+  width: 80%;
+  /* max-width: 500px; */
+  max-height: 80%;
+  overflow-y: auto;
+  position: relative;
+  margin-top: 8rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.DetailPopup-content hr {
+  border: 1px solid var(--text-color-2);
+}
+
+.close-button {
+  /* float: right;
+  font-size: 1.5rem;
+  cursor: pointer; */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  background: none;
+  border: none;
+}
+
+.DetailPopup h3 {
+  font-size: 30px;
+  font-weight: bolder;
+  color: var(--text-color-2);
+}
+
+.DetailPopup strong {
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--text-color-2);
+}
+
+.DetailPopup span {
+  font-size: 16px;
+  color: var(--text-color-2);
+}
+
+/* search daftar obat */
+.search-add-container-obat {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+/* pagination daftar obat */
+.paginationObat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+}
+
+.pagination-buttons-obat {
+  display: flex;
+  align-items: center;
+}
+
+.pagination-buttons-obat button {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.pagination-buttons span {
+  font-size: 16px;
 }
