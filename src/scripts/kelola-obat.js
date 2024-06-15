@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => { // Menunggu hingga seluruh
 });
 
 const accessToken = localStorage.getItem('accessToken');
-export const renderDashboard = (medicines) => {
+export const renderDashboard = (medicines, medicinesInfo) => {
   const dashboardContainer = document.createElement('div');
   dashboardContainer.classList.add('table-container');
 
@@ -51,11 +51,10 @@ export const renderDashboard = (medicines) => {
         <button class="refresh-btn">Muat Ulang</button>
       </div>
     `;
-    // Tambahkan event listener untuk refresh button
-const refreshButton = dashboardContainer.querySelector('.refresh-btn');
-refreshButton.addEventListener('click', () =>{
-  showDashboard();
-})
+    const refreshButton = dashboardContainer.querySelector('.refresh-btn');
+    refreshButton.addEventListener('click', () =>{
+      showDashboard();
+    });
   } else {
     dashboardContainer.innerHTML = `
       <h1>Kelola Data Obat</h1>
@@ -81,8 +80,8 @@ refreshButton.addEventListener('click', () =>{
         <tbody>
           ${medicines.map(medicine => `
             <tr>
-            <td>${medicine.id}</td>
-            <td>${medicine.name}</td>
+              <td>${medicine.id}</td>
+              <td>${medicine.name}</td>
               <td>${medicine.class_therapy}</td>
               <td>
                 <button class="edit-btn" id="${medicine.id}">Edit</button>
@@ -94,73 +93,89 @@ refreshButton.addEventListener('click', () =>{
       </table>
 
       <div class="paginationDashboard">
-        <span>Showing 1 - 10 results of ${medicines.length}</span>
+        <span>Showing 1 - ${medicines.length} results</span>
         <div class="paginationDashboard-buttons">
-          <button>&lt;</button>
-          <span>Page 01</span>
-          <button>&gt;</button>
+          <button class="prev-btn">&lt;</button>
+          <span>Page ${medicinesInfo.page} of ${medicinesInfo.totalPages}</span>
+          <button class="next-btn">&gt;</button>
         </div>
       </div>
     `;
-  }
-    // Tambahkan event listener untuk tombol Tambah Obat
+
     const addButton = dashboardContainer.querySelector('.add-btn');
     addButton.addEventListener('click', () => {
       showTambahObatForm();
     });
 
-// Tambahkan event listener untuk tombol pencarian
-const searchButton = dashboardContainer.querySelector('.search-btn');
-const searchInput = dashboardContainer.querySelector('.search-text');
+    const searchButton = dashboardContainer.querySelector('.search-btn');
+    const searchInput = dashboardContainer.querySelector('.search-text');
 
-if (searchButton && searchInput) {
-  searchButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    handleSearch(searchInput);
-  });
+    if (searchButton && searchInput) {
+      searchButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        handleSearch(searchInput);
+      });
+    }
 
-}
-
-async function handleSearch(inputElement) {
-  const searchText = inputElement.value;
-  const params = {
-    search: searchText
-  };
-  try {
-    await showDashboard(params);
-  } catch (error) {
-    console.error('Pencarian gagal:', error);
-    showErrorMessage('Terjadi kesalahan saat mencari data obat. Silakan coba lagi.')
-  }
-}
-
-
-      // Tambahkan event listener untuk tombol "Edit"
-  dashboardContainer.querySelectorAll('.edit-btn').forEach(button => {
-    button.addEventListener('click', async (event) => {
-      const medicineId = parseInt(event.target.id);
-      const medicine = await TheHealthcareSourceMedicine.getDetailMedicineById(medicineId)
-      showEditObatForm(medicine);
-    });
-  });
-
-  // Tambahkan event listener untuk tombol "Hapus"
-dashboardContainer.querySelectorAll('.delete-btn').forEach(button => {
-  button.addEventListener('click', async (event) => {
-    const medicineId = parseInt(event.target.id);
-    const confirmed = await showConfirmationModal('Apakah Anda yakin ingin menghapus obat ini?');
-    if (confirmed) {
-      const response = await TheHealthcareSourceMedicine.deleteMedicineById(medicineId, accessToken);
-      if (response) {
+    async function handleSearch(inputElement) {
+      const searchText = inputElement.value;
+      const params = {
+        search: searchText
+      };
+      try {
+        await showDashboard(params);
+      } catch (error) {
+        console.error('Pencarian gagal:', error);
+        showErrorMessage('Terjadi kesalahan saat mencari data obat. Silakan coba lagi.');
         showDashboard();
-        showSuccessMessage('Obat berhasil dihapus');
-      } else {
-        showErrorMessage('Gagal menghapus obat');
       }
     }
-  });
-});
-  
+
+    dashboardContainer.querySelectorAll('.edit-btn').forEach(button => {
+      button.addEventListener('click', async (event) => {
+        const medicineId = parseInt(event.target.id);
+        const medicine = await TheHealthcareSourceMedicine.getDetailMedicineById(medicineId);
+        showEditObatForm(medicine);
+      });
+    });
+
+    dashboardContainer.querySelectorAll('.delete-btn').forEach(button => {
+      button.addEventListener('click', async (event) => {
+        const medicineId = parseInt(event.target.id);
+        const confirmed = await showConfirmationModal('Apakah Anda yakin ingin menghapus obat ini?');
+        if (confirmed) {
+          const response = await TheHealthcareSourceMedicine.deleteMedicineById(medicineId, accessToken);
+          if (response) {
+            showDashboard();
+            showSuccessMessage('Obat berhasil dihapus');
+          } else {
+            showErrorMessage('Gagal menghapus obat');
+            showDashboard();
+          }
+        }
+      });
+    });
+
+    // Event listener untuk tombol "Next" dan "Back"
+    const nextButton = dashboardContainer.querySelector('.next-btn');
+    const prevButton = dashboardContainer.querySelector('.prev-btn');
+
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        if (medicinesInfo.page < medicinesInfo.totalPages) {
+          showDashboard({ page: medicinesInfo.page + 1 });
+        }
+      });
+    }
+
+    if (prevButton) {
+      prevButton.addEventListener('click', () => {
+        if (medicinesInfo.page > 1) {
+          showDashboard({ page: medicinesInfo.page - 1 });
+        }
+      });
+    }
+  }
 
   return dashboardContainer;
 };
@@ -288,7 +303,7 @@ export const showDashboard = async (params = {}) => {
     const medicines = await TheHealthcareSourceMedicine.getMedicinesDoctor(params, accessToken);
 
     kelolaObatSection.innerHTML = ''; // Bersihkan loading indicator setelah data selesai dimuat
-    kelolaObatSection.appendChild(renderDashboard(medicines.medicines));
+    kelolaObatSection.appendChild(renderDashboard(medicines.medicines, medicines));
   } catch (error) {
     console.error('Gagal mengambil data obat:', error);
     kelolaObatSection.innerHTML = '<p>Gagal memuat data obat. Silakan coba lagi.</p>';
@@ -388,6 +403,7 @@ export const showDashboard = async (params = {}) => {
         showSuccessMessage('Obat berhasil diperbarui');
       } else {
         showErrorMessage('Gagal memperbarui obat');
+        showDashboard();
       }
     });
   
