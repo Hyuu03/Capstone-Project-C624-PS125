@@ -4,45 +4,20 @@ import { showSuccessMessage, showErrorMessage } from "./utils/popup";
 
 // Event listener untuk memastikan DOM sudah sepenuhnya dimuat sebelum menjalankan script
 document.addEventListener('DOMContentLoaded', async () => {
-  const accessToken = localStorage.getItem('accessToken');
+  const login = document.getElementById('login-form');
+  const signup = document.getElementById('signup-form');
   const app_drawer = document.querySelector('.nav-ul');
-  const obatContainer = document.querySelector('#Kelolaobat')
   const navObat = document.querySelector('.kelola');
   console.log('DOM fully loaded and parsed');
-
-  // Objek yang berisi referensi ke formulir login dan signup
-  const sections = {
-    Login: document.getElementById('login-form'),
-    SignUp: document.getElementById('signup-form')
-  };
-
-  // Fungsi untuk menampilkan formulir yang sesuai berdasarkan formId yang diberikan
-  function showForm(formId, email = '', password = '') {
-    console.log(`Menampilkan formulir: ${formId}`);
-    for (const sectionId in sections) {
-      if (sections.hasOwnProperty(sectionId)) {
-        const section = sections[sectionId];
-        section.style.display = sectionId === formId ? 'block' : 'none';
-      }
-    }
-    // Jika formulir login yang ditampilkan, isi input email dan password jika ada
-    if (formId === 'Login') {
-      const emailInput = document.getElementById('email');
-      const passwordInput = document.getElementById('password');
-      if (emailInput && passwordInput) {
-        emailInput.value = email;
-        passwordInput.value = password;
-      }
-    }
-  }
 
   // Menambahkan event listener untuk link Sign Up
   const signUpLink = document.getElementById('signUpLink');
   if (signUpLink) {
     signUpLink.addEventListener('click', function(event) {
       event.preventDefault();
-      console.log('Link Sign Up diklik');
-      showForm('SignUp');
+      console.log('Link Sign Up diklik');;
+      signup.style.display = 'block';
+      login.style.display = 'none';
     });
   }
 
@@ -52,7 +27,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     signInLink.addEventListener('click', function(event) {
       event.preventDefault();
       console.log('Link Sign In diklik');
-      showForm('Login');
+      login.style.display = 'block';
+      signup.style.display = 'none';
     });
   }
 
@@ -79,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const response = await TheHealthcareSourceUser.register(name, email, password, confirmPassword);
         if (response) {
           showSuccessMessage('Registrasi berhasil!');
-          showForm('Login');
+  
         }
         
         // Setelah login berhasil, ubah tampilan menjadi logo "user.jpg"
@@ -172,15 +148,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         ;
       } else {
         console.log('Pengguna perlu login kembali');
-        loginForm.style.display = 'block';
         navObat.style.display = 'none';
-        
-        showForm('Login');
       }
-
-// Menampilkan formulir login sebagai default jika pengguna belum login
-if (!user) {
-  showForm('Login');
-}
-  
 });
