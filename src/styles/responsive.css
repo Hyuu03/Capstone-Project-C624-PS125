@@ -74,6 +74,7 @@
 @media screen and (max-width: 991px) {
   .TampilAwal {
     max-width: 700px;
+    margin: 0 auto;
   }
 
   .TampilAwal h1 {
@@ -103,11 +104,16 @@
   .containerText {
     margin: 0 25%;
   }
+
+  .hero img {
+    opacity: 0.4;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .TampilAwal {
     max-width: 600px;
+    margin: 0 auto;
   }
 
   .TampilAwal h1 {
@@ -142,6 +148,7 @@
 @media screen and (max-width: 617px) {
   .TampilAwal {
     max-width: 500px;
+    margin: 0 auto;
   }
 
   .TampilAwal h1 {
@@ -176,6 +183,7 @@
 @media screen and (max-width: 520px) {
   .TampilAwal {
     max-width: 400px;
+    margin: 0 auto;
   }
 
   .TampilAwal h1 {
@@ -208,6 +216,7 @@
 @media screen and (max-width: 371px) {
   .TampilAwal {
     max-width: 335px;
+    margin: 0 auto;
   }
 
   .TampilAwal h1 {

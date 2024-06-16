@@ -114,6 +114,7 @@
     <main id="mainContent">
       <section id="Beranda">
         <div class="hero">
+          <img src="./heros/hero.png" alt="hero" />
           <div class="TampilAwal">
             <h1>Welcome to the Health and Medicine Website</h1>
             <p>
@@ -129,40 +130,41 @@
         <div class="obat">
           <h2 class="heading">Informasi Obat</h2>
           <div class="groupObat">
-            
-            <style>
-              .text2 {
-                  color: black;
-              }
-          </style>
-      </head>
-      <body>
-          <div class="jenisObat">
-              <a href="https://drive.google.com/file/d/1nKR0aykdPOK3jQ1yLJMXFksEOCPrg8Z0/view?usp=drive_link" target="blank">
-                  <div class="ellipse">
-                      <img class="img" src="./images/luka_bakar.jpg" alt="luka">
-                  </div>
+            <div class="jenisObat">
+              <a
+                href="https://drive.google.com/file/d/1nKR0aykdPOK3jQ1yLJMXFksEOCPrg8Z0/view?usp=drive_link"
+                target="blank"
+              >
+                <div class="ellipse">
+                  <img class="img" src="./images/luka_bakar.jpg" alt="luka" />
+                </div>
               </a>
-              <a href="https://www.alodokter.com/seperti-ini-cara-mengatasi-luka-bakar-pada-anak-yang-tepat" target="blank">
-                  <div class="text2">Luka Bakar</div>
+              <a
+                href="https://www.alodokter.com/seperti-ini-cara-mengatasi-luka-bakar-pada-anak-yang-tepat"
+                target="blank"
+              >
+                <div class="text">Luka Bakar</div>
               </a>
-          </div>
-      
-          <div class="jenisObat">
-              <a href="https://drive.google.com/file/d/1Kd4Zn3HdIOgzDmKMipxfcXHzMlsT_sjz/view?usp=drive_link" target="blank">
-                  <div class="ellipse">
-                      <img class="img" src="./images/diare.jpg" alt="diare">
-                  </div>
-              </a>
-              <a href="https://sehatnegeriku.kemkes.go.id/baca/tips-sehat/20170403/4620310/kenali-diare-anak-dan-cara-pencegahannya/" target="blank">
-                  <div class="text2">Diare</div>
-              </a>
-          </div>
-      </body>
+            </div>
 
+            <div class="jenisObat">
+              <a
+                href="https://drive.google.com/file/d/1Kd4Zn3HdIOgzDmKMipxfcXHzMlsT_sjz/view?usp=drive_link"
+                target="blank"
+              >
+                <div class="ellipse">
+                  <img class="img" src="./images/diare.jpg" alt="diare" />
+                </div>
+              </a>
+              <a
+                href="https://sehatnegeriku.kemkes.go.id/baca/tips-sehat/20170403/4620310/kenali-diare-anak-dan-cara-pencegahannya/"
+                target="blank"
+              >
+                <div class="text">Diare</div>
+              </a>
+            </div>
 
-
-                      <div class="jenisObat">
+            <div class="jenisObat">
               <a
                 href="https://drive.google.com/file/d/1o5AAnVCQQQp2CliAUNxWaPjEtOWlQnO9/view?usp=sharing"
                 target="blank"
@@ -175,7 +177,7 @@
                 href="https://www.alodokter.com/berikut-daftar-obat-maag-yang-perlu-anda-ketahui"
                 target="blank"
               >
-                <div class="text2">Sakit Maag</div>
+                <div class="text">Sakit Maag</div>
               </a>
             </div>
 
@@ -192,9 +194,10 @@
                 href="https://www.alodokter.com/berbagai-jenis-obat-mual-muntah"
                 target="blank"
               >
-                <div class="text2">Mual-mual</div>
+                <div class="text">Mual-mual</div>
               </a>
             </div>
+          </div>
 
           <div class="lihat-semua">
             <div class="containerText">
@@ -280,8 +283,6 @@
                 <div class="text2">Diare</div>
               </a>
             </div>
-
-
 
             <div class="jenisObat">
               <a
@@ -483,21 +484,13 @@
           <h2>Daftar Obat</h2>
           <div class="search-add-container-obat">
             <div class="search-bar">
-              <input type="text" class="search-text" placeholder="Cari obat" />
+              <input type="text" placeholder="Cari obat" />
               <button class="search-btn">
                 <i class="fa fa-search" style="font-size: 18px"></i>
               </button>
             </div>
           </div>
-          <div class="drug-grid"></div>
-          <div class="paginationObat">
-            <span>Showing 1 - 10 results</span>
-            <div class="pagination-buttons-obat">
-              <button class="prev-btn">&lt;</button>
-              <span class="page-info">Page 1</span>
-              <button class="next-btn">&gt;</button>
-            </div>
-          </div>
+          <div class="drug-grid">
             <div
               id="medicine-detail-popup"
               class="DetailPopup"
@@ -557,6 +550,14 @@
                   <span id="popup-maximum_prescription"></span>
                 </p>
               </div>
+            </div>
+          </div>
+          <div class="paginationObat">
+            <span>Showing 1 - 10 results of 298</span>
+            <div class="pagination-buttons-obat">
+              <button>&lt;</button>
+              <span>Page 01</span>
+              <button>&gt;</button>
             </div>
           </div>
         </div>

@@ -137,9 +137,16 @@ body {
   background: linear-gradient(180deg, #65b741 0%, #2d511d 160.6%);
 }
 
+.hero img {
+  position: absolute;
+  padding-left: 20px;
+}
+
 .TampilAwal {
-  margin: 0 auto;
+  margin: 0 5% 0 30%;
   max-width: 800px;
+  z-index: 1;
+  opacity: 100%;
 }
 
 .TampilAwal h1 {
