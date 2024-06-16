@@ -71,6 +71,12 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .drug-grid {
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+  }
+}
+
 @media screen and (max-width: 991px) {
   .TampilAwal {
     max-width: 700px;
@@ -108,6 +114,10 @@
   .hero img {
     opacity: 0.4;
   }
+
+  .drug-grid {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -137,7 +147,7 @@
   }
 
   .drug-grid {
-    grid-template-columns: repeat(1, minmax(50px, 1fr));
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
   }
 
   .search-bar input {
@@ -177,6 +187,10 @@
 
   .containerText {
     margin: 0 10%;
+  }
+
+  .drug-grid {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
   }
 }
 
