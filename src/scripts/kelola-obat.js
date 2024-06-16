@@ -93,7 +93,7 @@ export const renderDashboard = (medicines, medicinesInfo) => {
       </table>
 
       <div class="paginationDashboard">
-        <span>Showing 1 - ${medicines.length} results</span>
+        <span>Showing ${((medicinesInfo.page - 1) * 10) + 1} - ${Math.min(medicinesInfo.page * 10, medicinesInfo.totalPages * 10)}</span>
         <div class="paginationDashboard-buttons">
           <button class="prev-btn">&lt;</button>
           <span>Page ${medicinesInfo.page} of ${medicinesInfo.totalPages}</span>

@@ -483,13 +483,21 @@
           <h2>Daftar Obat</h2>
           <div class="search-add-container-obat">
             <div class="search-bar">
-              <input type="text" placeholder="Cari obat" />
+              <input type="text" class="search-text" placeholder="Cari obat" />
               <button class="search-btn">
                 <i class="fa fa-search" style="font-size: 18px"></i>
               </button>
             </div>
           </div>
-          <div class="drug-grid">
+          <div class="drug-grid"></div>
+          <div class="paginationObat">
+            <span>Showing 1 - 10 results</span>
+            <div class="pagination-buttons-obat">
+              <button class="prev-btn">&lt;</button>
+              <span class="page-info">Page 1</span>
+              <button class="next-btn">&gt;</button>
+            </div>
+          </div>
             <div
               id="medicine-detail-popup"
               class="DetailPopup"
@@ -549,14 +557,6 @@
                   <span id="popup-maximum_prescription"></span>
                 </p>
               </div>
-            </div>
-          </div>
-          <div class="paginationObat">
-            <span>Showing 1 - 10 results of 298</span>
-            <div class="pagination-buttons-obat">
-              <button>&lt;</button>
-              <span>Page 01</span>
-              <button>&gt;</button>
             </div>
           </div>
         </div>
