@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (signUpLink) {
     signUpLink.addEventListener('click', function(event) {
       event.preventDefault();
-      console.log('Link Sign Up diklik');;
       signup.style.display = 'block';
       login.style.display = 'none';
     });
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (signInLink) {
     signInLink.addEventListener('click', function(event) {
       event.preventDefault();
-      console.log('Link Sign In diklik');
       login.style.display = 'block';
       signup.style.display = 'none';
     });
@@ -37,7 +35,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (registrationForm) {
     registrationForm.addEventListener('submit', async (event) => {
       event.preventDefault();
-      console.log('Formulir Sign Up dikirim');
       // Mengambil nilai input dari formulir registrasi
       const name = document.getElementById('new-name').value;
       const email = document.getElementById('new-email').value;
@@ -77,7 +74,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (loginForm) {
     loginForm.addEventListener('submit', async (event) => {
       event.preventDefault();
-      console.log('Formulir Login dikirim');
       // Mengambil nilai input dari formulir login
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
@@ -97,7 +93,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       // Periksa apakah token akses masih valid
       const user = await TheHealthcareSourceUser.getUser();
       if (user) {
-        console.log('Pengguna masih dalam kondisi login');
         const loginLink = document.getElementById('loginLink');
         if (loginLink) {
           loginLink.style.display = 'none'
@@ -147,7 +142,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         ;
       } else {
-        console.log('Pengguna perlu login kembali');
         navObat.style.display = 'none';
       }
 });
