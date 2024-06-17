@@ -71,6 +71,9 @@
   }
 }
 
+@media screen and (max-width: 1600px) {
+}
+
 @media screen and (max-width: 1200px) {
   .drug-grid {
     grid-template-columns: repeat(4, minmax(200px, 1fr));
@@ -118,6 +121,11 @@
   .drug-grid {
     grid-template-columns: repeat(3, minmax(200px, 1fr));
   }
+
+  .login-form,
+  .signup-form {
+    width: 350px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -151,6 +159,11 @@
   }
 
   .search-bar input {
+    width: 300px;
+  }
+
+  .login-form,
+  .signup-form {
     width: 300px;
   }
 }

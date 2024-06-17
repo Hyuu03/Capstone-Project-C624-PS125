@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Edukasi: document.getElementById("Edukasi"),
     Login: document.getElementById("login-form"),
     MainContent: document.getElementById("mainContent"),
-    Kelolaobat: document.getElementById('Kelolaobat')
+    Kelolaobat: document.getElementById("Kelolaobat"),
   };
 
   // Fungsi untuk menyembunyikan semua form
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Fungsi untuk menyembunyikan semua section kecuali section yang ditentukan
   const hideAllSectionsExcept = (exceptSection) => {
     Object.entries(sections).forEach(([key, section]) => {
-      if (key !== exceptSection && section) {
+      if (key !== exceptSection && key !== "MainContent" && section) {
         section.style.display = "none";
       }
     });
@@ -47,6 +47,19 @@ document.addEventListener("DOMContentLoaded", () => {
       section.style.display = "block";
     }
   };
+
+  // Menyembunyikan semua form dan section kecuali Beranda dan MainContent saat halaman pertama kali dimuat
+  hideAllForms();
+  hideAllSectionsExcept("Beranda");
+  showSection("Beranda");
+  showSection("MainContent");
+
+  // Menambahkan kelas 'active' ke item menu Beranda
+  menuItems.forEach((item) => {
+    if (item.getAttribute("href").substring(2) === "Beranda") {
+      item.classList.add("active");
+    }
+  });
 
   // Event listener untuk item menu
   menuItems.forEach((item) => {
@@ -67,10 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Menampilkan section yang ditargetkan
       showSection(targetId);
 
-      // Jika yang dipilih bukan login, menampilkan mainContent
-      if (targetId !== "Login") {
-        showSection("MainContent");
-      }
+      // Menampilkan mainContent selalu
+      showSection("MainContent");
     });
   });
 
@@ -100,4 +111,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
