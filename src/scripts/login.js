@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const signup = document.getElementById('signup-form');
   const app_drawer = document.querySelector('.nav-ul');
   const navObat = document.querySelector('.kelola');
-  console.log('DOM fully loaded and parsed');
+  // console.log('DOM fully loaded and parsed');
 
   // Menambahkan event listener untuk link Sign Up
   const signUpLink = document.getElementById('signUpLink');
