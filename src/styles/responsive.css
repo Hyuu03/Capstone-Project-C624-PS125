@@ -81,7 +81,7 @@
 }
 
 @media screen and (max-width: 1050px) {
-  .img-container img {
+  .hero img {
     opacity: 0.4;
   }
 }
@@ -263,13 +263,14 @@
     padding-left: 30%;
   }
 
-  .img-container {
+  /* .img-container {
     width: 330px;
-  }
+  } */
 
-  .img-container img {
-    height: 110%;
-    object-position: center 50px;
+  .hero img {
+    /* height: 500px; */
+    width: 330px;
+    object-position: center 100px;
   }
 
   .drug-list {
