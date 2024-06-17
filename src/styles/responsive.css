@@ -80,6 +80,12 @@
   }
 }
 
+@media screen and (max-width: 1050px) {
+  .img-container img {
+    opacity: 0.4;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .TampilAwal {
     max-width: 700px;
@@ -114,10 +120,6 @@
     margin: 0 25%;
   }
 
-  .hero img {
-    opacity: 0.4;
-  }
-
   .drug-grid {
     grid-template-columns: repeat(3, minmax(200px, 1fr));
   }
@@ -125,6 +127,14 @@
   .login-form,
   .signup-form {
     width: 350px;
+  }
+
+  .search-bar input {
+    max-width: 400px;
+  }
+
+  .add-btn {
+    margin-top: 10px;
   }
 }
 
@@ -205,11 +215,15 @@
   .drug-grid {
     grid-template-columns: repeat(1, minmax(200px, 1fr));
   }
+
+  .search-bar input {
+    max-width: 250px;
+  }
 }
 
 @media screen and (max-width: 520px) {
   .TampilAwal {
-    max-width: 400px;
+    max-width: 350px;
     margin: 0 auto;
   }
 
@@ -232,11 +246,34 @@
   .search-bar input {
     width: 200px;
   }
+
+  .search-add-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 
 @media screen and (max-width: 462px) {
   .edukasi .judul a {
     padding-left: 30%;
+  }
+
+  .img-container {
+    width: 330px;
+  }
+
+  .img-container img {
+    height: 110%;
+    object-position: center 50px;
+  }
+
+  .drug-list {
+    padding: 10px;
   }
 }
 

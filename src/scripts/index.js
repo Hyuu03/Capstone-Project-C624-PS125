@@ -61,6 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Fungsi untuk menutup navigation drawer
+  const closeNavigationDrawer = () => {
+    if (navigationDrawer.classList.contains("open")) {
+      navigationDrawer.classList.remove("open");
+    }
+  };
+
   // Event listener untuk item menu
   menuItems.forEach((item) => {
     item.addEventListener("click", function (event) {
@@ -82,6 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Menampilkan mainContent selalu
       showSection("MainContent");
+
+      // Menutup navigation drawer
+      closeNavigationDrawer();
     });
   });
 
@@ -95,6 +105,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Menambahkan event listener untuk klik di luar navigation drawer
+  document.addEventListener("click", (event) => {
+    if (
+      navigationDrawer.classList.contains("open") &&
+      !navigationDrawer.contains(event.target) &&
+      !hamburgerButton.contains(event.target)
+    ) {
+      closeNavigationDrawer();
+    }
+  });
+
   // Menambahkan event listener untuk link navigasi
   const navLinks = document.querySelectorAll(".app-bar__navigation a");
 
@@ -106,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (targetSection) {
         targetSection.scrollIntoView({ behavior: "smooth" }); // Menggulung tampilan ke section yang ditargetkan dengan efek smooth
-        navigationDrawer.classList.remove("open"); // Menutup navigation drawer
+        closeNavigationDrawer(); // Menutup navigation drawer
       }
     });
   });
