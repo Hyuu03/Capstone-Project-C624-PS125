@@ -51,6 +51,11 @@ export const renderDashboard = (medicines, medicinesInfo) => {
         <button class="refresh-btn">Muat Ulang</button>
       </div>
     `;
+    const addButton = dashboardContainer.querySelector('.add-btn');
+    addButton.addEventListener('click', () => {
+      showTambahObatForm();
+    });
+    
     const refreshButton = dashboardContainer.querySelector('.refresh-btn');
     refreshButton.addEventListener('click', () =>{
       showDashboard();
